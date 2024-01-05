@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-verification',
@@ -11,6 +13,7 @@ export class VerificationPage implements OnInit {
   inputCount = 0;
   finalInput = '';
   showSubmitButton = false;
+  constructor(private router:Router, private authService:AuthService){}
 
   ngOnInit(): void {
     this.startInput();
@@ -37,6 +40,9 @@ export class VerificationPage implements OnInit {
       this.disableInput(index);
       if (this.inputCount < 5) {
         this.enableInput(index + 1);
+      }else{
+        this.authService.isLoggedin=true;
+        this.router.navigate(['home']);
       }
       this.inputCount += 1;
     } else if (value.length == 0 && event.key == 'Backspace') {
@@ -49,8 +55,6 @@ export class VerificationPage implements OnInit {
     } else if (value.length > 1) {
       event.target.value = value.split('')[0];
     }
-
-    this.showSubmitButton = true;
   }
 
   disableInput(index: number): void {
@@ -68,14 +72,7 @@ export class VerificationPage implements OnInit {
     alert('Success');
   }
 
-  onKeyboardButtonClick(digit: number): void {
-    if (this.inputCount < 6) {
-      this.otp[this.inputCount] = digit;
-      this.inputCount++;
-      this.showSubmitButton = false;
-      this.enableInput(this.inputCount);
-    }
-  }
+
   
 
 }
