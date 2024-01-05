@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+<div class="login-page-main-conatiner">
+  <div class="section-0">
+    <img src="../../assets/Group 23.png" alt="">
+  </div>
+  <div class="section-1">
+    <img src="../../assets/Group 22968.png" alt="">
+  </div>
+
+
+  <div class="section-2">
+    <h1>Register</h1>
+    <p>Create an <span>account </span> to access all the features of League Apps!</p>
+  </div>
+  <div class="section-3">
+         <form  class="login-form">
+
+
+          <div class="button-conyainer">
+            <div class="inner">
+              <div class="icon"><label class="label">Your Name</label></div>
+              <div class="input-container">
+                <div class="img"><ion-icon name="person-outline"></ion-icon></div>
+              <div class="input"> <input type="text" placeholder="Ex Ali Hassan"> </div>
+            </div>
+            </div>
+        </div>
+        <div class="button-conyainer">
+          <div class="inner">
+            <div class="icon"><label class="label">Email</label></div>
+            <div class="input-container">
+              <div class="img"><ion-icon name="at-outline"></ion-icon></div>
+            <div class="input"> <input type="text" placeholder="Ex: abc@example.com"> </div>
+          </div>
+          </div>
+      </div>
+      <div class="button-conyainer">
+        <div class="inner">
+          <div class="icon"><label class="label">Passward</label></div>
+          <div class="input-container">
+            <div class="img"><ion-icon name="lock-closed-outline"></ion-icon></div>
+            <div class="input"> <input type="password" placeholder="...."> <ion-icon name="eye-off-sharp"></ion-icon></div>
+        </div>
+        </div>
+    </div>
+
+    <div class="password-check-section">
+      <p>password must be:</p>
+      <div class="secondp"><div class="success"><ion-icon name="checkmark-outline"></ion-icon></div> must be 12 digits long</div>
+    </div>
+         </form>    
+  </div>
+  <div class="section-footer">
+   <button routerLink="/verification">Proceed <ion-icon class="icon" name="arrow-forward-outline"></ion-icon></button>
+   <p>Already have an account? <span>Signin</span></p>
+  </div>
+</div>
+
+</ion-content>
+

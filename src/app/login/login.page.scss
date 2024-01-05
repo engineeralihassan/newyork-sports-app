@@ -1,0 +1,154 @@
+.login-page-main-conatiner{
+    background-color: #fff;
+    width: 100vw;
+    height: auto;
+    padding: 10px;
+    padding-bottom: 20px;
+    .section-0{
+        margin-top: 10px;
+        margin-left: 10px;
+        color: #000000;
+        font-size: 25px;
+        img{
+            width: 30px;
+            height: auto;
+        }
+    }
+
+    .section-1{
+        width: 100%;
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            width: 141px;
+            height: 88px;
+        }
+
+    }
+
+
+    .section-2{
+        color:#000000;
+        padding: 14px;
+        
+        h1{
+           
+            line-height: -1.1%;
+            font-size: 24px;
+            line-height: 24px;
+            margin-top: -10px;
+        }
+        h2{
+            color: #B6D433;
+            font-size: 40px;
+            line-height: 24px;
+            font-weight: 700;
+ 
+            
+        }
+    
+        
+    }
+
+    .section-3{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 150px !important;
+    
+        .login-form{
+         width: 100%;
+         display: flex;
+         flex-direction: column;
+         gap: 14px;
+
+         .button-conyainer{
+            border-bottom: 1px solid #B6D433;
+            
+            height: 85px;
+            width: 100%;
+            .inner{
+                width: 100%;
+                display: flex;
+                justify-content:space-between;
+                align-items:flex-start;
+                flex-direction: column;
+                color: #000000;
+                gap: 10px;
+                font-family: 'Franklin Gothic', sans-serif;
+                font-size: 16px;
+                .icon{
+                    color: #000000;
+                    margin-bottom: 7px;
+                }
+                .input{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 20PX;
+                    input{
+                        background-color: #fff;
+                        color: #000000;
+                        outline: none;
+                        border: none;
+                    }
+                 
+
+                }
+            }
+
+
+        
+
+
+    }
+    .SECOND{
+        border-bottom: 1px solid #E2E2E2;
+        margin-top: 8px;
+    }
+
+        }
+
+       
+
+    }
+
+    .section-footer{
+        position: relative;
+        bottom: 10%;
+        width: 100%;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     button{
+        width: 100%;
+        background-color: #B6D433;
+        color: #000000;
+        height: 57px;
+        border-radius: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        .icon{
+            margin-left: 10px;
+            font-size: 20px;
+            
+        }
+
+     }
+
+
+
+    }
+    
+}

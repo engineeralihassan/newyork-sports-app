@@ -1,0 +1,119 @@
+.login-page-main-conatiner{
+    background-color: #fff;
+    width: 100vw;
+    height: auto;
+    padding: 10px;
+    padding-bottom: 20px;
+
+    .section-1{
+        width: 100%;
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+            width: 141px;
+            height: 88px;
+        }
+
+    }
+
+
+    .section-2{
+        color:#000000;
+        padding: 14px;
+        
+        h1{
+            font-weight: bold;
+            line-height: -1.1%;
+            font-size: 24px;
+            line-height: 24px;
+            margin-top: -10px;
+        }
+        h2{
+            color: #B6D433;
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: bold;
+            margin-top: -4px;
+            
+        }
+        p{
+            margin-top: -3px;
+        }
+        
+    }
+
+    .section-3{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        padding: 4px;
+        margin-bottom: 150px !important;
+        h3{
+            font-weight: 700;
+            font-family: 'Franklin Gothic', sans-serif;
+        }
+        .login-form-contaner{
+            width: 100%;
+            display: flex;
+            justify-self:center;
+            align-items: center;
+            flex-direction: column;
+            gap: 15px;
+
+            .button-conyainer{
+                border: 2px solid #000000;
+                border-radius: 16px;
+                height: 56px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .inner{
+                    width: 80%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #000000;
+                    gap: 10px;
+                    font-family: 'Franklin Gothic', sans-serif;
+                    font-size: 16px;
+                    .icon{
+                        color: #B6D433;
+                        font-size: 25px;
+                        margin-top: 7px;
+                    }
+                }
+
+
+            }
+
+
+        }
+
+    }
+
+    .section-footer{
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span{
+            margin-left: 4px;
+            color: #B6D433;
+            font-size: 20px;
+        }
+
+
+
+    }
+    
+}
