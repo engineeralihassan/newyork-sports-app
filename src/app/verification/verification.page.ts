@@ -27,7 +27,6 @@ export class VerificationPage implements OnInit {
   }
 
   isInputDisabled(index: number): boolean {
-    console.log("this is the condition",index <= this.inputCount)
     return index < this.inputCount;
   }
 

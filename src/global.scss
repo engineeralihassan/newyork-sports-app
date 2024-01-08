@@ -24,7 +24,12 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
-@import url('https://fonts.cdnfonts.com/css/franklin-gothic');
 * {
     font-family: 'Syn', sans-serif;
+  }
+
+  .example-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }

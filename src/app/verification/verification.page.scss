@@ -88,7 +88,7 @@
                 flex-direction: column;
                 color: #000000;
                 gap: 10px;
-                font-family: 'Franklin Gothic', sans-serif;
+             
                 font-size: 16px;
                 .icon{
                     color: #000000;
@@ -228,13 +228,15 @@
     flex-direction: column;
     margin-top: 20px;
     gap: 20px;
+    width: 100%;
     .send-option{
         width: 100%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 10px;   
+        gap: 10px;  
+       
     }
   }
 

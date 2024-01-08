@@ -1,0 +1,133 @@
+.modal-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    .line{
+        width: 60px;
+        height: 8px;
+        background-color: #F3F3F3;
+        border-radius: 30px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    h1{
+        font-weight: bold;
+        font-size: 20px;
+    }
+    p{
+       color: #5E5E5E;    }
+    .logout-btn{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        button{
+            background-color: #F3F3F3;
+            text-align: center;
+            border-radius: 10px;
+            padding: 18px 16px 18px 16px;
+            width: 150px;
+            border: none;
+            outline: none;
+
+            
+        }
+        .btn-2{
+            background-color: #B6D433;
+        }
+
+    }
+}
+
+
+.selfie-modal-dialog {
+    position:fixed;
+    top:auto;
+    right:auto;
+    left:auto;
+    bottom:0;
+    width: 100%;
+
+    
+    .modal-body{
+        width: 100%;
+        .btn-2{
+            background-color: #B6D433;
+            width: 100%;
+           ion-icon{
+                 margin-bottom: -3px;
+            
+            }
+        }
+    }
+   
+
+    
+ } 
+
+ .selfie-modal-dialog{
+    width: 98%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px 30px 0 0 ;
+ }
+
+ .selfie-modal-dialog .modal-body{
+
+ 
+h2{
+    color: #B6D433;
+    font-weight: normal;
+}
+ .text{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #B6D433;
+    p{
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+
+    }span{
+      color: #B1B1B4;
+      margin: 10px;
+      margin-top: -10px;
+    }
+}
+
+.location-tab{
+    width: 100%;
+    .box-1{
+        display: flex;
+        gap: 10px;
+        ion-icon {
+             color: #B6D433;
+             margin-top: 4px;
+        }
+
+    }
+    .box-2{
+        .circle{
+            background-color: green;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #0000;
+            margin-top: 4px;
+        }
+    }
+
+}
+
+ }
