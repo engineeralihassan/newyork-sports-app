@@ -152,3 +152,61 @@
     }
     
 }
+
+
+
+@media(min-width:700px){
+  
+.section-2{
+text-align: center;
+width: 60%;
+margin: auto;
+h1{
+    font-size: 32px !important;
+
+}
+h2{
+    color: #B6D433;
+    font-size: 50px !important;   
+    margin-top: 20px;
+}
+}
+.section-3{
+    width: 70% !important;
+    margin: auto;
+
+}
+
+.section-footer{
+    width: 70% !important;
+    margin: auto;
+}
+
+}
+@media(min-width:1000px){
+  
+    .section-2{
+        text-align: center;
+        width: 60% !important;
+        margin: auto;
+        h1{
+            font-size: 50px !important;
+        
+        }
+        h2{
+            color: #B6D433;
+            font-size: 65px !important;   
+        }
+        }
+        .section-3{
+            width: 60% !important;
+            margin: auto;
+        
+        }
+        
+        .section-footer{
+            width: 60% !important;
+            margin: auto;
+        }
+
+}

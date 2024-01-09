@@ -67,53 +67,104 @@
 
 @media(min-width:768px){
 
-        .checkin-screens-container{
-           
-            .screen-1{
-                .section-1{
-             
-                      margin-top: 30px;
+    .checkin-screens-container{
+       
+        .screen-1{
+            .section-1{
+         
+                  margin-top: 40px;
+    
+    
+                  .img-container{
+               
         
-        
-                      .img-container{
-            
-                        img{
-                            height: 440px;
-                        }
-                      }
-        
-                      .content{
-                        margin-top: 50px;
-                        h1{
-                            color: #B6D433;
-                            font-size: 60px;
-                            font-weight: bold;
-                        }
-                        p{
-                            margin-top: 10px;
-                            font-size: 26px;
-                        }
-                      }
-        
-                }
-            }
-            .section-2{
-
-                button{
+                    img{
+                        width: 30%;
+                        height: 240px;
+                    }
+                  }
+    
+                  .content{
                     width: 80%;
-                    border-radius: 10px;
-                    background-color: #B6D433;
-                    color: black;
                     text-align: center;
-                    height: 70px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 30px;
-            
-                }
+                    margin-top: 50px;
+                    h1{
+                        text-align: center;
+                        font-size: 40px;
+                        font-weight: bold;
+                    }
+                    p{
+                        text-align: center;
+                        margin-top: 10px;
+                        font-size: 22px;
+                    }
+                  }
+    
             }
-            
-        
         }
+        .section-2{
+             width: 50%;
+            button{
+                height: 50px;
+        
+                font-size: 22px;
+        
+            }
+        }
+        
+    
+    }
 }
+
+@media(min-width:1000px){
+
+    .checkin-screens-container{
+       
+        .screen-1{
+            .section-1{
+         
+                  margin-top: 40px;
+    
+    
+                  .img-container{
+               
+        
+                    img{
+                        width: 30%;
+                        height: 240px;
+                    }
+                  }
+    
+                  .content{
+                    width: 60%;
+                    text-align: center;
+                    margin-top: 50px;
+                    h1{
+                        text-align: center;
+                        font-size: 60px;
+                        font-weight: bold;
+                    }
+                    p{
+                        text-align: center;
+                        margin-top: 10px;
+                        font-size: 25px;
+                    }
+                  }
+    
+            }
+        }
+        .section-2{
+             width: 40%;
+            button{
+                height: 50px;
+        
+                font-size: 25px;
+        
+            }
+        }
+        
+    
+    }
+}
+
+

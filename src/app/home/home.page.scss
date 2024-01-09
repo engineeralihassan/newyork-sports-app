@@ -231,6 +231,44 @@ ion-footer {
   bottom: 0;
   width: 100%;
   ion-toolbar{
+    width: 100%;
     color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
+}
+
+.home-page-footer{
+  width: 100%;
+  color: black;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 2px;
+}
+
+@media(min-width:700px){
+  .all-matches-section-container{
+
+    width: 90%;
+    margin: auto;
+  }
+
+}
+@media(min-width:910px){
+  .all-matches-section-container{
+    margin: 2px !important;
+   display: flex;
+   justify-content:space-evenly;
+   align-items: center;
+   gap: 15px;
+    width: 100% !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .match-box{
+      width: 45% !important;
+    }
+  }
+
 }
