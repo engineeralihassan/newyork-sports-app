@@ -8,18 +8,18 @@
 
 <ion-content [fullscreen]="true">
 <div class="main-app-screen">
-<div class="splash-screen-container" *ngIf="!isLoggedin">
+<div class="splash-screen-container" *ngIf="isLoading">
   <img src="../../assets/Group 22968.png" alt="">
 </div>
-<div class="home-page-section-1" *ngIf="isLoggedin">
+<div class="home-page-section-1" *ngIf="!isLoading">
   <div class="inned-box">
-    <h2>All Matches</h2> <div class="icon" (click)="toggleShowDiv('divA')"><ion-icon name="search-outline"></ion-icon></div>
+    <h2>All Matches</h2> <div class="icon" (click)="toggleInput()"><ion-icon name="search-outline"></ion-icon></div>
   </div>
-  <div class="search-box divA" [@slideInOut]="animationState"  *ngIf="showInput">
+  <div class="search-box divA" *ngIf="showInput">
     <div class="inner"><div class="icon"><ion-icon name="arrow-back-outline"></ion-icon></div><input type="text" placeholder="Search here..."></div>
   </div>
 </div>
-<div class="all-matches-section-container">
+<div class="all-matches-section-container" *ngIf="!isLoading">
   <div class="match-box" *ngFor="let match of matches">
     <div class="match-box-header">
       <div class="text"> <p>Zinggy's corner pub</p> <span> vs </span> <p> Li impact</p></div>
@@ -52,7 +52,7 @@
 
 
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="!isLoading">
   <ion-toolbar class="home-page-footer">
 
     <app-manu-tabs></app-manu-tabs>

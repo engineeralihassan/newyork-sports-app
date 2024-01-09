@@ -12,15 +12,7 @@ import { SlideInOutAnimation } from './animation';
 export class HomePage {
   animationState = 'out';
   showInput=false;
-
-  toggleShowDiv(divName: string) {
-    if (divName === 'divA') {
-      this.showInput=!this.showInput;
-      console.log(this.animationState);
-      this.animationState = this.animationState === 'out' ? 'in' : 'out';
-      console.log(this.animationState);
-    }
-  }
+  isLoading=false;
   isLoggedin=false;
   matches=[1,2,3,4,5,6,7,8,9,10,11,1,2,13,14,15,16,22,33,44,55,66,77,88,90]
 
@@ -28,13 +20,21 @@ export class HomePage {
     console.log("The loggen is uer::",this.authService.isLoggedin);
   }
   ngOnInit(){
-    console.log(this.authService.isLoggedin);
+    this.isLoading=true;
     if(!this.authService.isLoggedin){
       setTimeout(()=>{
+        this.isLoading=false;
         this.router.navigate(['/auth']);
         },2000);
     }else{
-      this.isLoggedin=true;
+       console.log("is logedin is ::",this.authService.isLoggedin)
+       setTimeout(()=>{
+        this.isLoading=false;
+        },2000);
     }
+  }
+
+  toggleInput(){
+    this.showInput=!this.showInput;
   }
 }

@@ -40,7 +40,7 @@ export class VerificationPage implements OnInit {
       if (this.inputCount < 5) {
         this.enableInput(index + 1);
       }else{
-        this.authService.isLoggedin=true;
+        this.authService.logIn(true);
         this.router.navigate(['home']);
       }
       this.inputCount += 1;
