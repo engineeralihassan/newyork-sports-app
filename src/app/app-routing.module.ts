@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'selfie',
     loadChildren: () => import('./selfie/selfie.module').then( m => m.SelfiePageModule)
   },
+  {
+    path: 'checkin',
+    loadChildren: () => import('./checkin/checkin.module').then( m => m.CheckinPageModule)
+  },
 
 ];
 

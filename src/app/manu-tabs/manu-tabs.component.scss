@@ -1,11 +1,10 @@
 .tabs-main-container{
     width: 100%;
-       position: relative;
+    position: relative;
     bottom: 0;
-    width: 100%;
-    z-index: 2;
-    max-height: 100px;
-    margin-top: 50px;
+    min-height: 100px;
+    border-radius: 20px 20px 0 0;
+    background-color: #ffff;
 }
 
 ion-tab-bar {
@@ -14,12 +13,11 @@ ion-tab-bar {
     background-color: #F3F3F3;
     color: black;
     width: 95%;
-    margin: auto;
 
 }
 ion-tab-button{
     background-color: #F3F3F3;
-    color: #000000;
+    color: black;
 }
 ion-tab-button.active{
 

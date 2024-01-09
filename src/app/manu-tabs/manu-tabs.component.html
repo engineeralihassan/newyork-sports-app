@@ -6,7 +6,7 @@
     <ion-tab-button [class.active]="activeTab === 'calendar'" (click)="changeTab('calendar')">
       <ion-icon name="calendar-clear-outline"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button [class.active]="activeTab === 'timer'" (click)="changeTab('timer')">
+    <ion-tab-button [class.active]="activeTab === 'timer'" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-proceed"  (click)="changeTab('timer')">
       <ion-icon name="timer-outline"></ion-icon>
     </ion-tab-button>
     <ion-tab-button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-selfie" [class.active]="activeTab === 'settings'" (click)="changeTab('settings')">

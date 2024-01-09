@@ -115,6 +115,7 @@ h2{
 
     }
     .box-2{
+        margin-top: 10px;
         .circle{
             background-color: green;
             width: 20px;
@@ -130,4 +131,18 @@ h2{
 
 }
 
+ }
+
+ .profile-photo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
  }

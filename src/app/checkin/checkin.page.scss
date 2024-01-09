@@ -1,0 +1,119 @@
+.checkin-screens-container{
+    padding: 20px;
+    width: 100%;
+    min-height: 100vh;
+    .screen-1{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        min-height:88vh; 
+        .section-1{
+            width: 100%;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              flex-direction: column;
+              margin-top: 20px;
+
+
+              .img-container{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: 80%;
+                    height: 240px;
+                }
+              }
+
+              .content{
+                margin-top: 50px;
+                h1{
+                    color: #B6D433;
+                    font-size: 25px;
+                }
+                p{
+                    margin-top: 10px;
+                }
+              }
+
+        }
+    }
+
+}
+.section-2{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+        width: 80%;
+        border-radius: 10px;
+        background-color: #B6D433;
+        color: black;
+        text-align: center;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+
+
+    }
+}
+
+@media(min-width:768px){
+
+        .checkin-screens-container{
+           
+            .screen-1{
+                .section-1{
+             
+                      margin-top: 30px;
+        
+        
+                      .img-container{
+            
+                        img{
+                            height: 440px;
+                        }
+                      }
+        
+                      .content{
+                        margin-top: 50px;
+                        h1{
+                            color: #B6D433;
+                            font-size: 60px;
+                            font-weight: bold;
+                        }
+                        p{
+                            margin-top: 10px;
+                            font-size: 26px;
+                        }
+                      }
+        
+                }
+            }
+            .section-2{
+
+                button{
+                    width: 80%;
+                    border-radius: 10px;
+                    background-color: #B6D433;
+                    color: black;
+                    text-align: center;
+                    height: 70px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 30px;
+            
+                }
+            }
+            
+        
+        }
+}
