@@ -81,3 +81,48 @@
         }
     }
 }
+
+@media(min-width:700px){
+    .location{
+      font-size: 20px;
+    }
+    .cross-btn{
+
+        width: 60px;
+        height: 60px;
+       
+        font-size: 30px;
+    }
+    .section-2-image{
+        width: 60%;
+        height: 300px;
+        margin: auto;
+     
+    }
+    .third-section{
+        width: 60% !important;
+        margin: auto;
+    }
+}
+
+@media(min-width:1200px){
+    .location{
+      font-size: 20px;
+    }
+    .cross-btn{
+
+        width: 60px;
+        height: 60px;
+       
+        font-size: 30px;
+    }
+    .section-2-image{
+        width: 40%;
+        height: 350px;
+        margin: auto;
+     
+    }
+    .third-section{
+        width: 45% !important;
+    }
+}
