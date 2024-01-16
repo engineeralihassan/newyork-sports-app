@@ -1,10 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
+
 <div class="login-page-main-conatiner">
   <div class="section-0">
     <img src="../../assets/Group 23.png" alt="">
@@ -21,19 +18,20 @@
   <div class="section-3">
 
      
-         <form  class="login-form">
+         <form  class="login-form" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
 
 
           <div class="button-conyainer">
             <div class="inner">
               <div class="icon"><label class="label">Email</label></div>
-              <div class="input"> <input type="text" placeholder="Enter Email"> </div>
+              <div class="input"> <input type="text" placeholder="Enter Email" formControlName="username" autocomplete="off" > </div>
             </div>
         </div>
-        <div class="button-conyainer SECOND">
+
+        <div class="button-conyainer SECOND" *ngIf="isuserExist">
           <div class="inner">
             <div class="icon"><label class="label">Passward</label></div>
-            <div class="input"> <input type="password" placeholder="Enter Passward"> <ion-icon name="eye-off-sharp"></ion-icon></div>
+            <div class="input"> <input type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Enter Passward" formControlName="password" autocomplete="off" > <ion-icon name="{{ hidePassword ? 'eye-off-sharp' : 'eye-sharp' }}" (click)="togglePasswordVisibility()"></ion-icon></div>
           </div>
         </div>
 
@@ -53,7 +51,7 @@
 
   </div>
   <div class="section-footer">
-   <button routerLink="/register">Proceed <ion-icon class="icon" name="arrow-forward-outline"></ion-icon></button>
+   <button type="submit" [disabled]="loginForm.invalid" (click)="onSubmit()">Proceed<ion-icon class="icon" name="arrow-forward-outline"></ion-icon></button>
   </div>
 </div>
 

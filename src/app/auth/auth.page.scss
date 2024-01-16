@@ -67,6 +67,7 @@
             gap: 15px;
 
             .button-conyainer{
+                cursor: pointer;
                 border: 2px solid #000000;
                 border-radius: 16px;
                 height: 56px;
@@ -117,7 +118,18 @@
     }
     
 }
+.splash-screen-container{
 
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img{
+      width: 141px;
+      height: 80px;
+    }
+  }
 
 @media(min-width:768px){
     .section-2{

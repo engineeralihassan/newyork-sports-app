@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
@@ -7,7 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { ManuTabsComponent } from '../manu-tabs/manu-tabs.component';
 import { ModelAlertComponent } from '../model-alert/model-alert.component';
-
+DatePipe
 
 
 @NgModule({
@@ -17,6 +17,7 @@ import { ModelAlertComponent } from '../model-alert/model-alert.component';
     IonicModule,
     HomePageRoutingModule
   ],
+  providers:[DatePipe],
   declarations: [HomePage,ManuTabsComponent]
 })
 export class HomePageModule {}

@@ -9,12 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { ManuTabsComponent } from './manu-tabs/manu-tabs.component';
 import { ModelAlertComponent } from './model-alert/model-alert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
 @NgModule({
   declarations: [AppComponent,ModelAlertComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent,],
 })

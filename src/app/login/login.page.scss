@@ -99,6 +99,7 @@
                         color: #000000;
                         outline: none;
                         border: none;
+                        width: 100%;
                     }
                  
 
@@ -210,3 +211,14 @@ h2{
         }
 
 }
+
+button:disabled {
+    background-color: #e1eea5 !important; 
+    color: #aaaaaa !important; 
+    cursor: not-allowed !important; 
+  }
+
+  .errorBorder{
+    border-bottom: 1px solid red !important;
+  }
+

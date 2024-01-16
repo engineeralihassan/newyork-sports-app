@@ -2,6 +2,7 @@ import { Component, } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { SlideInOutAnimation } from './animation';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -10,31 +11,34 @@ import { SlideInOutAnimation } from './animation';
   animations: [SlideInOutAnimation]
 })
 export class HomePage {
-  animationState = 'out';
   showInput=false;
   isLoading=false;
-  isLoggedin=false;
-  matches=[1,2,3,4,5,6,7,8,9,10,11,1,2,13,14,15,16,22,33,44,55,66,77,88,90]
+  matches:any[]=[];
 
-  constructor(private router:Router, private authService:AuthService) {
+  constructor(private router:Router, private authService:AuthService,private datePipe: DatePipe) {
     console.log("The loggen is uer::",this.authService.isLoggedin);
   }
   ngOnInit(){
-    this.isLoading=true;
-    if(!this.authService.isLoggedin){
-      setTimeout(()=>{
-        this.isLoading=false;
-        this.router.navigate(['/auth']);
-        },2000);
-    }else{
-       console.log("is logedin is ::",this.authService.isLoggedin)
-       setTimeout(()=>{
-        this.isLoading=false;
-        },2000);
-    }
-  }
+  this.isLoading=true;
+  this.authService.getGames().subscribe((data)=>{
+    console.log("the games data is ::",data);
+    if(data.status){
+      this.matches=data.programs;
 
+      this.isLoading=false;
+    }
+  })
+  }
+  formatTime(timestamp: string): string {
+    const date = new Date(Number(timestamp));
+    const formattedTime = this.datePipe.transform(date, 'ha');
+
+    return formattedTime || '';
+  }
   toggleInput(){
     this.showInput=!this.showInput;
+  }
+  private isValidDate(date: Date): boolean {
+    return !isNaN(date.getTime());
   }
 }

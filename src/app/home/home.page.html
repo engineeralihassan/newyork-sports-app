@@ -1,13 +1,11 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      New York sports
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-<div class="main-app-screen">
+  <div class="loader-container" *ngIf="isLoading">
+   <div class="loader"></div> */
+ 
+  </div>
+<div class="main-app-screen" *ngIf="!isLoading">
 <div class="splash-screen-container" *ngIf="isLoading">
   <img src="../../assets/Group 22968.png" alt="">
 </div>
@@ -22,24 +20,26 @@
 <div class="all-matches-section-container" *ngIf="!isLoading">
   <div class="match-box" *ngFor="let match of matches">
     <div class="match-box-header">
-      <div class="text"> <p>Zinggy's corner pub</p> <span> vs </span> <p> Li impact</p></div>
+      <div class="text"> <p>{{match?.team1}}</p> <span> vs </span> <p> {{match?.team2}}</p></div>
       <div class="btns"><button class="checkin-btn">Check in</button></div>
     </div>
 
     <div class="match-profile-content">
       <div class="left">
         <div class="p1">Programe State</div>
-        <div class="p2">Live</div>
+        <div class="p2">{{match?.programState}}</div>
         <div class="p3">Location</div>
         <div class="p4">
-          <div class="icon"><ion-icon name="location-outline"></ion-icon></div><div class="text">New York, NY</div>
+          <div class="icon"><ion-icon name="location-outline"></ion-icon></div><div class="text">{{match?.locationName
+          }}</div>
         </div>
       </div>
       <div class="right">
 
         <div class="p1">Start time</div>
         <div class="p4">
-          <div class="icon"><ion-icon name="time-outline"></ion-icon></div><div class="text">4:00PM to 6:00PM</div>
+          <div class="icon"><ion-icon name="time-outline"></ion-icon></div><div class="text">{{ formatTime(match.startTime
+            ) }}</div>
         </div>
       </div>
     </div>

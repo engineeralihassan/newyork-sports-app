@@ -1,11 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>auth</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <div class="login-page-main-conatiner">
+  <div class="splash-screen-container" *ngIf="isLoading">
+    <img src="../../assets/Group 22968.png" alt="" >
+  </div>
+  <div class="login-page-main-conatiner" *ngIf="!isLoading">
     <div class="section-1">
       <img src="../../assets/Group 22968.png" alt="">
     </div>
