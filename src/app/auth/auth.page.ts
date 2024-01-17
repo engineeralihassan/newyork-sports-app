@@ -22,7 +22,6 @@ private timerSubscription: Subscription | undefined;
         this.router.navigate(['/home']);
       });
     } else {
-      console.log('isLoggedIn is:', this.authService.isLoggedin);
       this.timerSubscription = timer(2000).subscribe(() => {
         this.isLoading = false;
       });

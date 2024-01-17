@@ -83,7 +83,6 @@ export class OtpVerificationComponent  implements OnInit {
     if(data.status){
       this.isOtpError=false;
       this.isOtpCorrect=true;
-      console.log("the otp data request",data);
       this.timerSubscription = timer(3000).subscribe(() => {
           this.router.navigate(['verification/reset-password']);
       });

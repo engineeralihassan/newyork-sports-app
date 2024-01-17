@@ -32,7 +32,6 @@ export class ResetPasswordComponent {
   onSubmit() {
 
     if (this.loginForm.valid) {
-      console.log("This.form value",this.loginForm.value);
       this.isLoading=true;
       const formData = this.loginForm.value;
       this.authService.user=formData;
@@ -52,7 +51,6 @@ export class ResetPasswordComponent {
         this.isresetSuccess=false;
         this.router.navigate(['home']);
     });
-      console.log("The reset passward data is:",data);
     }else{
       this.isLoading=false;
       this.isError.isUser=true;

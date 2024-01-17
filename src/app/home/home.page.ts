@@ -17,12 +17,10 @@ export class HomePage {
   matchesRecordsData:any;
 
   constructor(private router:Router, private authService:AuthService,private datePipe: DatePipe) {
-    console.log("The loggen is uer::",this.authService.isLoggedin);
   }
   ngOnInit(){
   this.isLoading=true;
   this.authService.getGames().subscribe((data)=>{
-    console.log("the games data is ::",data);
     if(data.status){
       this.matchesRecordsData=data.programs;
       this.matches=data.programs;

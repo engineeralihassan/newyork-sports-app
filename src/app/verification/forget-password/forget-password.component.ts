@@ -46,7 +46,6 @@ export class ForgetPasswordComponent {
     if(data.otp){
       this.isLoading=false;
       this.isError.isUser=false;
-      console.log("The data is",data);
       this.authService.otpCode=data.otp;
       this.openModal();
     }else{

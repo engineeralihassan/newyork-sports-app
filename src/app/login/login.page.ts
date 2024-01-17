@@ -36,7 +36,6 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       this.isLoading=true;
       const formData = this.loginForm.value;
-      console.log('Form submitted:', formData);
       if(this.isuserExist){
         this.login(formData)
       }else{
@@ -47,9 +46,7 @@ export class LoginPage implements OnInit {
   }
 
   findUser(data:any){
-    console.log("The data is ::",this.loginForm.value);
     this.authService.findUser(data).subscribe((data)=>{
-    console.log("the data is ::",data);
     if(data.status){
       this.loginForm?.get('password')?.setValidators([Validators.required]);
       this.isuserExist=true;
@@ -69,9 +66,7 @@ export class LoginPage implements OnInit {
   }
 
   login(data:any){
-    console.log("The data is ::",this.loginForm.value);
     this.authService.logIn(data).subscribe((data)=>{
-   console.log("the data is ::",data);
    if(data.status){
     localStorage.setItem('nasaTocken',data.accessToken);
     this.authService.isLoggedin=true;
