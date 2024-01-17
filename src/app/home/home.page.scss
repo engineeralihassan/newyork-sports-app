@@ -311,3 +311,39 @@ animation: lds-eclipse 1s linear infinite;
   transform: rotate(360deg);
 }
 }
+
+.norecords-section{
+  width: 100%;
+  height: 500px;
+  margin: 20px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 100px;
+  .inner{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-right: 20px;
+    padding-bottom: 200px;
+    img{
+      width: 100%;
+      height: 250px;
+      border-radius: 50px;
+
+    }
+    h2{
+      color: #B6D433;
+      font-size: 30px;
+    }
+    p{
+      text-align: center;
+    }
+    
+  }
+
+}
