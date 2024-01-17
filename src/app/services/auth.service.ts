@@ -8,6 +8,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   apiUrl=environment.apiUrl;
+  otpCode:any;
+  user:any;
  
   constructor(private http:HttpClient) { }
   findUser(data: any): Observable<any> {
@@ -27,4 +29,13 @@ export class AuthService {
       return this.http.post(`${this.apiUrl}/getGames`, requestBody, {headers} );
    
   }
+  verifyOtp(data:any): Observable<any> {
+
+    return this.http.post(`${this.apiUrl}/otpVerify`, data, );
+ 
+}
+
+resetPassword(data:any): Observable<any> {
+  return this.http.post(`${this.apiUrl}/addPassword`, data, );
+}
 }

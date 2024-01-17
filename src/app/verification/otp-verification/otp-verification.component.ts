@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { Subscription, timer } from 'rxjs';
 @Component({
   selector: 'app-otp-verification',
   templateUrl: './otp-verification.component.html',
   styleUrls: ['./otp-verification.component.scss'],
 })
 export class OtpVerificationComponent  implements OnInit {
-
+  private timerSubscription: Subscription | undefined;
   otp: any[] = [null, null, null, null,null,null];
   inputCount = 0;
   finalInput = '';
   showSubmitButton = false;
+  otpcode!:any;
+  isOtpCorrect=false;
+  isOtpError=false;
   constructor(private router:Router, private authService:AuthService){}
 
   ngOnInit(): void {
+  this.otpcode=this.authService.otpCode;
+  console.log("The code is::",this.otpcode)
     this.startInput();
   }
 
@@ -40,7 +46,13 @@ export class OtpVerificationComponent  implements OnInit {
         this.enableInput(index + 1);
       }else{
         this.authService.logIn(true);
-        this.router.navigate(['verification/reset-password']);
+        if(this.otp.length>4){
+          let optvalue=this.otp.join('');
+          let data={ username:`${this.authService.user.username}`,otp:`${optvalue}`}
+          this.verifyOtpRequest(data);
+          
+        }
+    
       }
       this.inputCount += 1;
     } else if (value.length == 0 && event.key == 'Backspace') {
@@ -66,11 +78,28 @@ export class OtpVerificationComponent  implements OnInit {
     }
   }
 
-  validateOTP(): void {
-    alert('Success');
+  verifyOtpRequest(otp:any){
+   this.authService.verifyOtp(otp).subscribe((data)=>{
+    if(data.status){
+      this.isOtpError=false;
+      this.isOtpCorrect=true;
+      console.log("the otp data request",data);
+      this.timerSubscription = timer(3000).subscribe(() => {
+          this.router.navigate(['verification/reset-password']);
+      });
+    }else{
+      this.isOtpError=true;
+      this.startInput();
+    }
+   })
+  }
+  ngOnDestroy(): void {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
   }
 
-
+ 
   
 
 }

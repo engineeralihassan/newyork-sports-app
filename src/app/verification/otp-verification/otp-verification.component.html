@@ -5,6 +5,18 @@
   <div class="section-1">
     <img src="../../assets/Group 22968.png" alt="">
   </div>
+  <div class="alert alert-success d-flex align-items-center opt-succees-alert" role="alert" *ngIf="isOtpCorrect">
+  <div class="icon"><ion-icon name="checkmark-circle-outline"></ion-icon></div>
+    <div>
+      Your Otp verified successfully set your new password
+    </div>
+  </div>
+  <div class="alert alert-danger d-flex align-items-center error-otp-alert" role="alert" *ngIf="isOtpError">
+    <div class="icon"><ion-icon name="alert-circle-outline"></ion-icon></div>
+    <div>
+      wrong otp code please enter correct code.
+    </div>
+  </div>
 
 
   <div class="section-2">
