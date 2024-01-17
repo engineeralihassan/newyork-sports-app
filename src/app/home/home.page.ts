@@ -1,19 +1,20 @@
 import { Component, } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { SlideInOutAnimation } from './animation';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  animations: [SlideInOutAnimation]
 })
 export class HomePage {
   showInput=false;
   isLoading=false;
   matches:any[]=[];
+  searchText: string = '';
+  matchesRecordsData:any;
 
   constructor(private router:Router, private authService:AuthService,private datePipe: DatePipe) {
     console.log("The loggen is uer::",this.authService.isLoggedin);
@@ -23,7 +24,9 @@ export class HomePage {
   this.authService.getGames().subscribe((data)=>{
     console.log("the games data is ::",data);
     if(data.status){
+      this.matchesRecordsData=data.programs;
       this.matches=data.programs;
+
 
       this.isLoading=false;
     }
@@ -40,5 +43,20 @@ export class HomePage {
   }
   private isValidDate(date: Date): boolean {
     return !isNaN(date.getTime());
+  }
+  filterRecords(records: any[], searchText: string): any[] {
+    return records.filter(
+      (record) =>
+        record.team1.toLowerCase().includes(searchText.toLowerCase()) ||
+        record.team2.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
+  updateSearch(): void {
+    if(!this.searchText){
+      this.matches=this.matchesRecordsData;
+    }else{
+     this.matches= this.filterRecords(this.matches,this.searchText);
+    }
+   
   }
 }

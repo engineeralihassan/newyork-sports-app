@@ -15,6 +15,7 @@ export class LoginPage implements OnInit {
   hidePassword: boolean = true;
   isuserExist=false;
   isError=false;
+  isLoading=false;
   constructor(private router:Router,private fb: FormBuilder, private authService:AuthService) {}
   
   ngOnInit(): void {
@@ -31,7 +32,9 @@ export class LoginPage implements OnInit {
   }
 
   onSubmit() {
+
     if (this.loginForm.valid) {
+      this.isLoading=true;
       const formData = this.loginForm.value;
       console.log('Form submitted:', formData);
       if(this.isuserExist){
@@ -50,13 +53,17 @@ export class LoginPage implements OnInit {
     if(data.status){
       this.loginForm?.get('password')?.setValidators([Validators.required]);
       this.isuserExist=true;
+      this.isLoading=false;
+      this.isError=false;
     }else{
+      this.isLoading=false;
       this.loginForm.get('password')?.clearValidators();
       this.isError=true;
     }
     this.loginForm.get('password')?.updateValueAndValidity();
     },
     (error:any)=>{
+      this.isLoading=false;
       console.log("error is errrrrr",error);
     })
   }
@@ -68,10 +75,12 @@ export class LoginPage implements OnInit {
    if(data.status){
     localStorage.setItem('nasaTocken',data.accessToken);
     this.authService.isLoggedin=true;
+    this.isLoading=false;
     this.router.navigate(['home']);
    }
     },
     (error:any)=>{
+      this.isLoading=false;
       console.log("error is errrrrr",error);
     })
   }

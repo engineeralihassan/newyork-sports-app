@@ -2,7 +2,8 @@
 
 <ion-content [fullscreen]="true">
   <div class="loader-container" *ngIf="isLoading">
-   <div class="loader"></div> */
+    <div class="loading-spinner">
+    </div>   
  
   </div>
 <div class="main-app-screen" *ngIf="!isLoading">
@@ -14,7 +15,7 @@
     <h2>All Matches</h2> <div class="icon" (click)="toggleInput()"><ion-icon name="search-outline"></ion-icon></div>
   </div>
   <div class="search-box divA" *ngIf="showInput">
-    <div class="inner"><div class="icon"><ion-icon name="arrow-back-outline"></ion-icon></div><input type="text" placeholder="Search here..."></div>
+    <div class="inner"><div class="icon"><ion-icon name="arrow-back-outline"></ion-icon></div><input  type="text" placeholder="Search here..." [(ngModel)]="searchText" (input)="updateSearch()" ></div>
   </div>
 </div>
 <div class="all-matches-section-container" *ngIf="!isLoading">
