@@ -21,19 +21,21 @@
          <form  class="login-form" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
 
 
-          <div class="button-conyainer" [ngClass]="{'errorBorder': isError}">
+          <div class="button-conyainer" [ngClass]="{'errorBorder':isError.isUser}">
             <div class="inner">
               <div class="icon"><label class="label">Email</label></div>
               <div class="input"> <input type="text" placeholder="Enter Email" formControlName="username" autocomplete="off" > </div>
             </div>
         </div>
-        <p class="error-message" *ngIf="isError">This user name is not exist</p>
-        <div class="button-conyainer SECOND" *ngIf="isuserExist">
+        <p class="error-message" *ngIf="isError.isUser">This user name is not exist</p>
+        <div class="button-conyainer SECOND" [ngClass]="{'errorBorder': isError.isPassWrong}" *ngIf="isuserExist">
           <div class="inner">
             <div class="icon"><label class="label">Passward</label></div>
             <div class="input"> <input type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Enter Passward" formControlName="password" autocomplete="off" > <ion-icon name="{{ hidePassword ? 'eye-off-sharp' : 'eye-sharp' }}" (click)="togglePasswordVisibility()"></ion-icon></div>
+            <div class="forget-password" routerLink="/verification">Forget Password</div>
           </div>
         </div>
+        <p class="error-message" *ngIf="isError.isPassWrong">Wrong password please try again</p>
          </form>
 
   

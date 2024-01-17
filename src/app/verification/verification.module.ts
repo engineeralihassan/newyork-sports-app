@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { VerificationPageRoutingModule } from './verification-routing.module';
 
 import { VerificationPage } from './verification.page';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
 
 @NgModule({
   imports: [
@@ -15,6 +18,6 @@ import { VerificationPage } from './verification.page';
     IonicModule,
     VerificationPageRoutingModule
   ],
-  declarations: [VerificationPage]
+  declarations: [VerificationPage,ForgetPasswordComponent,ResetPasswordComponent,OtpVerificationComponent]
 })
 export class VerificationPageModule {}

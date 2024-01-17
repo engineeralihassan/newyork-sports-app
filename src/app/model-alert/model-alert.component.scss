@@ -147,3 +147,56 @@ h2{
     }
  }
 
+
+ #EmailSendSuccess{
+    .modal-content{
+        width: 80%;
+        margin: auto;
+        border-radius: 20px;
+    }
+    .modal-body{
+        .img{
+            margin-top: 10px;
+            ion-icon{
+               font-size: 40px;
+            }
+
+        }
+        p{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
+ .email-btn{
+    width: 46%;
+    background-color: #B6D433;
+    color: black;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    
+ }
+ .line{
+    width: 60px;
+    height: 8px;
+    background-color: #F3F3F3;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.img{
+    margin-top: 5px;
+    background-color: #08C552;
+    color: #FFFFFF;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}

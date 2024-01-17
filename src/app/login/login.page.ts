@@ -14,7 +14,7 @@ export class LoginPage implements OnInit {
   loginForm!: FormGroup;
   hidePassword: boolean = true;
   isuserExist=false;
-  isError=false;
+  isError={isUser:false,isPassWrong:false};
   isLoading=false;
   constructor(private router:Router,private fb: FormBuilder, private authService:AuthService) {}
   
@@ -54,11 +54,11 @@ export class LoginPage implements OnInit {
       this.loginForm?.get('password')?.setValidators([Validators.required]);
       this.isuserExist=true;
       this.isLoading=false;
-      this.isError=false;
+      this.isError.isUser=false;
     }else{
       this.isLoading=false;
       this.loginForm.get('password')?.clearValidators();
-      this.isError=true;
+      this.isError.isUser=true;
     }
     this.loginForm.get('password')?.updateValueAndValidity();
     },
@@ -76,7 +76,11 @@ export class LoginPage implements OnInit {
     localStorage.setItem('nasaTocken',data.accessToken);
     this.authService.isLoggedin=true;
     this.isLoading=false;
+    this.isError.isPassWrong=false;
     this.router.navigate(['home']);
+   }else{
+    this.isLoading=false;
+    this.isError.isPassWrong=true;
    }
     },
     (error:any)=>{
