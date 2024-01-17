@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-auth',
@@ -11,7 +12,7 @@ import { Subscription, timer } from 'rxjs';
 export class AuthPage implements OnInit {
 isLoading=false;
 private timerSubscription: Subscription | undefined;
-  constructor(private authService:AuthService,private router:Router) { }
+  constructor(private authService:AuthService,private router:Router, private loc:Location) { }
 
   ngOnInit(): void {
     this.isLoading=true;
@@ -27,7 +28,9 @@ private timerSubscription: Subscription | undefined;
       });
     }
   }
-
+  goBack(){
+    this.loc.back();
+  }
   ngOnDestroy(): void {
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
