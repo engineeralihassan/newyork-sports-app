@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatchesService } from 'src/app/services/matches.service';
 
 @Component({
   selector: 'app-selfie-screen1',
@@ -6,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./selfie-screen1.component.scss'],
 })
 export class SelfieScreen1Component  implements OnInit {
+  checkInData:any;
+  constructor(private router:Router,private dataService:MatchesService) { }
 
-  constructor() { }
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.getObject();
+  }
+  getObject(): any {
+    this.dataService.getObjectSubject().subscribe((obj) => {
+      console.log("the data is chnaged",obj);
+      this.checkInData = obj;
+    });
+  }
 
 }

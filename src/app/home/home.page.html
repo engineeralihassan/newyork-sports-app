@@ -22,7 +22,7 @@
   <div class="match-box" *ngFor="let match of matches">
     <div class="match-box-header">
       <div class="text"> <p>{{match?.team1}}</p> <span> vs </span> <p> {{match?.team2}}</p></div>
-      <div class="btns"><button class="checkin-btn">Check in</button></div>
+      <div class="btns"><button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-selfie" class="checkin-btn" (click)="onButtonClick(match)">Check in</button></div>
     </div>
 
     <div class="match-profile-content">
@@ -69,5 +69,6 @@
     <app-manu-tabs></app-manu-tabs>
   </ion-toolbar>
 </ion-footer>
+
 
 

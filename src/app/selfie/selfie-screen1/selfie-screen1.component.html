@@ -1,11 +1,11 @@
 <ion-content [fullscreen]="true">
   <div class="all-selfie-sections-container">
   <div class="selfie-section-one">
-    <div class="cross-btn">
+    <div class="cross-btn" routerLink="/home">
       <ion-icon name="close-outline"></ion-icon>
     </div>
     <div class="location">
-      <ion-icon name="location-outline"></ion-icon> <div class="text">New York , NY</div>
+      <ion-icon name="location-outline"></ion-icon> <div class="text">{{checkInData?.locationName}}</div>
     </div>
   </div>
 

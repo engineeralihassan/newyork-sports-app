@@ -2,6 +2,7 @@ import { Component, } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { DatePipe } from '@angular/common';
+import { MatchesService } from '../services/matches.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class HomePage {
   searchText: string = '';
   matchesRecordsData:any;
 
-  constructor(private router:Router, private authService:AuthService,private datePipe: DatePipe) {
+  constructor(private router:Router, private authService:AuthService,private datePipe: DatePipe,private matchesService:MatchesService) {
   }
   ngOnInit(){
   this.isLoading=true;
@@ -24,17 +25,22 @@ export class HomePage {
     if(data.status){
       this.matchesRecordsData=data.programs;
       this.matches=data.programs;
-
-
       this.isLoading=false;
     }
+  },(error)=>{
+      alert("Please login first to get matches")
+      this.isLoading=false;
+      this.router.navigate(['login'])
+    
   })
   }
   formatTime(timestamp: string): string {
     const date = new Date(Number(timestamp));
     const formattedTime = this.datePipe.transform(date, 'ha');
-
     return formattedTime || '';
+  }
+  onButtonClick(obj: any): void {
+    this.matchesService.setObject(obj);
   }
   toggleInput(){
     this.showInput=!this.showInput;
