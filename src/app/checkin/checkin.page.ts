@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatchesService } from '../services/matches.service';
 
 @Component({
   selector: 'app-checkin',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckinPage implements OnInit {
 screen2=false;
-  constructor() { }
+  constructor(private matcheService:MatchesService) { }
 
   ngOnInit() {
+  if(this.matcheService.checkinFail){
+    this.changeScreen();
+  }
   }
   changeScreen(){
     this.screen2=true;

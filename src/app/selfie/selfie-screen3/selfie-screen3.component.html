@@ -1,3 +1,19 @@
-<p>
-  selfie-screen3 works!
-</p>
+<div class="screen-three-content">
+  <div class="screen-three-inner">
+  <h2>Check In</h2>
+  <div class="text"> <p>{{data?.team1}}</p> <span> vs </span> <p>{{data?.team2}}</p></div>
+  <div class="location-tab">
+    <div class="box-1"> <ion-icon name="location-outline"></ion-icon>  <div class="icon">{{data?.locationName}}</div></div>
+    <div class="box-1 box-2"> <div class="circle"><ion-icon name="checkmark-outline"></ion-icon></div>   <div class="icon">you are on permissions</div></div>
+    <div class="box-1 box-2"> <div class="circle"><ion-icon name="checkmark-outline"></ion-icon></div>   <div class="icon">Photo</div></div>
+  </div>
+
+  <div class="profile-photo">
+    <img *ngIf="imageSrc" [src]="imageSrc" alt="">
+  </div>
+
+  <div class="logout-btn">
+    <button class="btn btn-2" (click)="onProceed()"> <div class="loader" *ngIf="isLoading"></div><p *ngIf="!isLoading">Proceed</p><ion-icon *ngIf="!isLoading" name="arrow-forward-outline"></ion-icon>  </button>
+  </div>
+</div>
+</div>

@@ -200,3 +200,18 @@ h2{
     align-items: center;
     font-size: 25px;
 }
+
+.img-user{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+
+
+
+}

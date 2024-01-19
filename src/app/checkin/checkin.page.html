@@ -12,8 +12,8 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
     </div>
-    <div class="section-2" (click)="changeScreen()">
-      <button><ion-icon name="arrow-back-outline"></ion-icon> Proceed back to Home</button>
+    <div class="section-2" >
+      <button routerLink="/home"><ion-icon name="arrow-back-outline"></ion-icon> Proceed back to Home</button>
     </div>
   </div>
   <div class="screen-1" *ngIf="screen2">

@@ -1,9 +1,9 @@
-import { Component, } from '@angular/core';
+import { Component, ViewChild, ElementRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { DatePipe } from '@angular/common';
 import { MatchesService } from '../services/matches.service';
-
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +11,8 @@ import { MatchesService } from '../services/matches.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  @ViewChild('myButton') myButton!: ElementRef;
+  private timerSubscription: Subscription | undefined;
   showInput=false;
   isLoading=false;
   matches:any[]=[];
@@ -62,5 +64,11 @@ export class HomePage {
      this.matches= this.filterRecords(this.matches,this.searchText);
     }
    
+  }
+
+  ngOnDestroy(): void {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
   }
 }
