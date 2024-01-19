@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-forget-password',
@@ -16,7 +16,7 @@ export class ForgetPasswordComponent {
   isuserExist=false;
   isError={isUser:false,isPassWrong:false};
   isLoading=false;
-  constructor(private router:Router,private fb: FormBuilder, private authService:AuthService) {}
+  constructor(private router:Router,private fb: FormBuilder, private authService:AuthService,private loc:Location) {}
   
   ngOnInit(): void {
     this.initLoginForm();
@@ -27,7 +27,9 @@ export class ForgetPasswordComponent {
       label: ['forgot'],
     });
   }
-
+  goBack(){
+    this.loc.back();
+  }
   onSubmit() {
 
     if (this.loginForm.valid) {

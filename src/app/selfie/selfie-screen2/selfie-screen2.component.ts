@@ -34,4 +34,6 @@ export class SelfieScreen2Component  implements OnInit {
    this.router.navigate(['selfie/screen3'])
   }
 
+
+
 }

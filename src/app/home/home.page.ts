@@ -18,6 +18,8 @@ export class HomePage {
   matches:any[]=[];
   searchText: string = '';
   matchesRecordsData:any;
+  showAlert = false;
+  errorMesg='something went wrong try again';
 
   constructor(private router:Router, private authService:AuthService,private datePipe: DatePipe,private matchesService:MatchesService) {
   }
@@ -30,7 +32,8 @@ export class HomePage {
       this.isLoading=false;
     }
   },(error)=>{
-      alert("Please login first to get matches")
+
+      alert("Please login first to get matches");
       this.isLoading=false;
       this.router.navigate(['login'])
     
@@ -49,6 +52,14 @@ export class HomePage {
   }
   private isValidDate(date: Date): boolean {
     return !isNaN(date.getTime());
+  }
+  showAndHideAlert(): void {
+    this.showAlert = true;
+
+    this.timerSubscription = timer(4000).subscribe(() => {
+      this.showAlert = false;
+      
+    });
   }
   filterRecords(records: any[], searchText: string): any[] {
     return records.filter(

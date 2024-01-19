@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -10,13 +11,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   loginForm!: FormGroup;
   hidePassword: boolean = true;
   isuserExist=false;
   isError={isUser:false,isPassWrong:false};
   isLoading=false;
-  constructor(private router:Router,private fb: FormBuilder, private authService:AuthService) {}
+  constructor(private router:Router,private fb: FormBuilder, private authService:AuthService,private loc:Location) {}
   
   ngOnInit(): void {
     this.initLoginForm();
@@ -30,7 +30,9 @@ export class LoginPage implements OnInit {
       password: [''],
     });
   }
-
+  goBack(){
+    this.loc.back();
+  }
   onSubmit() {
 
     if (this.loginForm.valid) {
@@ -67,16 +69,18 @@ export class LoginPage implements OnInit {
 
   login(data:any){
     this.authService.logIn(data).subscribe((data)=>{
-   if(data.status){
-    localStorage.setItem('nasaTocken',data.accessToken);
-    this.authService.isLoggedin=true;
-    this.isLoading=false;
-    this.isError.isPassWrong=false;
-    this.router.navigate(['home']);
-   }else{
-    this.isLoading=false;
-    this.isError.isPassWrong=true;
-   }
+        
+        if(data.status){
+          localStorage.setItem('nasaTocken',data.accessToken);
+          this.authService.isLoggedin=true;
+          this.isLoading=false;
+          this.isError.isPassWrong=false;
+          this.router.navigate(['home']);
+        }else{
+          this.isLoading=false;
+          this.isError.isPassWrong=true;
+        }
+        
     },
     (error:any)=>{
       this.isLoading=false;

@@ -11,6 +11,7 @@ import { ModelAlertComponent } from './model-alert/model-alert.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorAlertComponent } from './error-alert/error-alert.component';
 
 
 
