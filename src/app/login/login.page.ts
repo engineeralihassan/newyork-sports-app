@@ -41,6 +41,7 @@ export class LoginPage implements OnInit {
       if(this.isuserExist){
         this.login(formData)
       }else{
+        this.authService.user=formData;
         this.findUser(formData);
       }
       
@@ -54,7 +55,11 @@ export class LoginPage implements OnInit {
       this.isuserExist=true;
       this.isLoading=false;
       this.isError.isUser=false;
-    }else{
+    }else if(!data.status && data?.otp){
+      this.authService.otpCode=data.otp;
+    this.router.navigate(['verification/otp-verification']);
+    }
+    else{
       this.isLoading=false;
       this.loginForm.get('password')?.clearValidators();
       this.isError.isUser=true;
