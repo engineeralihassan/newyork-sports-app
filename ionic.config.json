@@ -1,5 +1,8 @@
 {
   "name": "newyork-sports-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }
