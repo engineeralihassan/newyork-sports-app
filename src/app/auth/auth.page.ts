@@ -30,6 +30,11 @@ private timerSubscription: Subscription | undefined;
   goBack(){
     this.loc.back();
   }
+  setloginMethod(method:any){
+    this.authService.setLoginMethod(method);
+    this.router.navigate(['login'])
+  }
+
   ngOnDestroy(): void {
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();

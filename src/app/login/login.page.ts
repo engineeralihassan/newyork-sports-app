@@ -16,9 +16,11 @@ export class LoginPage implements OnInit {
   isuserExist=false;
   isError={isUser:false,isPassWrong:false};
   isLoading=false;
+  loginMethod:any;
   constructor(private router:Router,private fb: FormBuilder, private authService:AuthService,private loc:Location) {}
   
   ngOnInit(): void {
+    this.loginMethod=this.authService.loginMethod;
     this.initLoginForm();
   }
   togglePasswordVisibility() {
@@ -26,9 +28,17 @@ export class LoginPage implements OnInit {
   }
   initLoginForm() {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required]],
+      username: ['',],
       password: [''],
     });
+    if (this.loginMethod === 'email') {
+      this.loginForm.get('username')?.setValidators([Validators.required, Validators.email]);
+    } else if (this.loginMethod === 'phone') {
+      this.loginForm.get('username')?.setValidators([Validators.required, Validators.pattern('[0-9+]+')]);
+    }
+    else if(this.loginMethod === 'username'){
+      this.loginForm.get('username')?.setValidators([Validators.required]);
+    }
   }
   goBack(){
     this.loc.back();

@@ -10,6 +10,7 @@ export class AuthService {
   apiUrl=environment.apiUrl;
   otpCode:any;
   user:any;
+  loginMethod='username';
  
   constructor(private http:HttpClient) { }
   findUser(data: any): Observable<any> {
@@ -33,6 +34,9 @@ export class AuthService {
 
     return this.http.post(`${this.apiUrl}/otpVerify`, data, );
  
+}
+setLoginMethod(method:any){
+  this.loginMethod=method;
 }
 
 resetPassword(data:any): Observable<any> {
