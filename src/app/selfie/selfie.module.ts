@@ -12,14 +12,22 @@ import { SelfieScreen3Component } from './selfie-screen3/selfie-screen3.componen
 import { SelfieScreen2Component } from './selfie-screen2/selfie-screen2.component';
 import { SelfieScreen4Component } from './selfie-screen4/selfie-screen4.component';
 import { ErrorAlertComponent } from '../error-alert/error-alert.component';
+import { SharedModule } from '../Shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SelfiePageRoutingModule
+    SelfiePageRoutingModule,
+    SharedModule,
   ],
-  declarations: [SelfiePage,ErrorAlertComponent,SelfieScreen1Component,SelfieScreen3Component,SelfieScreen2Component,SelfieScreen4Component]
+  declarations: [
+    SelfiePage,
+    SelfieScreen1Component,
+    SelfieScreen3Component,
+    SelfieScreen2Component,
+    SelfieScreen4Component,
+  ],
 })
 export class SelfiePageModule {}

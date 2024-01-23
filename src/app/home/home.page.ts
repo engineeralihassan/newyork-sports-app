@@ -38,9 +38,10 @@ export class HomePage {
         }
       },
       (error) => {
-        alert('Please login first to get matches');
         this.isLoading = false;
-        this.router.navigate(['login']);
+        this.showAndHideAlert();
+        this.errorMesg = 'Please Login first your tocken is expired ';
+        this.router.navigate(['auth']);
       }
     );
   }

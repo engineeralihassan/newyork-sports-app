@@ -242,5 +242,11 @@
 @media (max-width: 600px) {
   .section-footer {
     position: absolute !important;
+    top: 98%;
+  }
+}
+.section-footer {
+  span {
+    cursor: pointer;
   }
 }
