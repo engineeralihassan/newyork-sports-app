@@ -1,72 +1,86 @@
-
-
 <ion-content [fullscreen]="true">
   <div class="loader-container" *ngIf="isLoading">
     <div class="loading-spinner">
-    </div>   
- 
-  </div>
-<div class="main-app-screen" *ngIf="!isLoading">
-<div class="splash-screen-container" *ngIf="isLoading">
-  <img src="../../assets/Group 22968.png" alt="">
-</div>
-<div class="home-page-section-1" *ngIf="!isLoading">
-  <div class="inned-box">
-    <h2>All Matches</h2> <div class="icon" (click)="toggleInput()"><ion-icon name="search-outline"></ion-icon></div>
-  </div>
-  <div class="search-box divA" *ngIf="showInput">
-    <div class="inner"><div class="icon"><ion-icon name="arrow-back-outline"></ion-icon></div><input  type="text" placeholder="Search here..." [(ngModel)]="searchText" (input)="updateSearch()" ></div>
-  </div>
-</div>
-<div class="all-matches-section-container" *ngIf="!isLoading">
-  <div class="match-box" *ngFor="let match of matches">
-    <div class="match-box-header">
-      <div class="text"> <p>{{match?.team1}}</p> <span> vs </span> <p> {{match?.team2}}</p></div>
-      <div class="btns"><button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-selfie" class="checkin-btn" (click)="onButtonClick(match)">Check in</button></div>
     </div>
 
-    <div class="match-profile-content">
-      <div class="left">
-        <div class="p1">Programe State</div>
-        <div class="p2">{{match?.programState}}</div>
-        <div class="p3">Location</div>
-        <div class="p4">
-          <div class="icon"><ion-icon name="location-outline"></ion-icon></div><div class="text">{{match?.locationName
+  </div>
+  <div class="main-app-screen" *ngIf="!isLoading">
+    <div class="splash-screen-container" *ngIf="isLoading">
+      <img src="../../assets/Group 22968.png" alt="">
+    </div>
+    <div class="home-page-section-1" *ngIf="!isLoading">
+      <div class="inned-box">
+        <h2>All Matches</h2>
+        <div class="icon" (click)="toggleInput()">
+          <ion-icon name="search-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="search-box divA" *ngIf="showInput">
+        <div class="inner">
+          <div class="icon">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </div><input type="text" placeholder="Search here..." [(ngModel)]="searchText" (input)="updateSearch()">
+        </div>
+      </div>
+    </div>
+    <div class="all-matches-section-container" *ngIf="!isLoading">
+      <div class="match-box" *ngFor="let match of matches">
+        <div class="match-box-header">
+          <div class="text">
+            <p>{{match?.team1}}</p> <span> vs </span>
+            <p> {{match?.team2}}</p>
+          </div>
+          <div class="btns"><button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-selfie"
+              class="checkin-btn" (click)="onButtonClick(match)">Check in</button></div>
+        </div>
+
+        <div class="match-profile-content">
+          <div class="left">
+            <div class="p1">Programe State</div>
+            <div class="p2">{{match?.programState}}</div>
+            <div class="p3">Location</div>
+            <div class="p4">
+              <div class="icon">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="text">{{match?.locationName
           }}</div>
-        </div>
-      </div>
-      <div class="right">
+            </div>
+          </div>
+          <div class="right">
 
-        <div class="p1">Start time</div>
-        <div class="p4">
-          <div class="icon"><ion-icon name="time-outline"></ion-icon></div><div class="text">{{ formatTime(match.startTime
+            <div class="p1">Start time</div>
+            <div class="p4">
+              <div class="icon">
+                <ion-icon name="time-outline"></ion-icon>
+              </div>
+              <div class="text">{{ formatTime(match.startTime
             ) }}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="norecords-section" *ngIf="!matches.length">
-  <div class="inner">
-    <div class="icon">
-      <img src="../../assets/undraw_Joyride_re_968t.png" alt="">
+    <div class="norecords-section" *ngIf="!matches.length">
+      <div class="inner">
+        <div class="icon">
+          <img src="../../assets/undraw_Joyride_re_968t.png" alt="">
+        </div>
+        <h2>Sorry No Results found :(</h2>
+        <p>We're sorry what you are looking for. Please try another way</p>
+      </div>
     </div>
-    <h2>Sorry No Results found :(</h2>
-    <p>We're sorry what you are looking for. Please try another way</p>
+
+
+
   </div>
-</div>
 
-
-
-</div>
-
-<button class="btn second-btn-non" #myButton   type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-proceed" >Send Email</button>
+  <button class="btn second-btn-non" #myButton type="button" data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop-proceed">Send Email</button>
 </ion-content>
 <ion-footer *ngIf="!isLoading">
   <ion-toolbar class="home-page-footer">
     <app-manu-tabs></app-manu-tabs>
   </ion-toolbar>
 </ion-footer>
-
-

@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef  } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { DatePipe } from '@angular/common';
@@ -13,31 +13,36 @@ import { Subscription, timer } from 'rxjs';
 export class HomePage {
   @ViewChild('myButton') myButton!: ElementRef;
   private timerSubscription: Subscription | undefined;
-  showInput=false;
-  isLoading=false;
-  matches:any[]=[];
+  showInput = false;
+  isLoading = false;
+  matches: any[] = [];
   searchText: string = '';
-  matchesRecordsData:any;
+  matchesRecordsData: any;
   showAlert = false;
-  errorMesg='something went wrong try again';
+  errorMesg = 'something went wrong try again';
 
-  constructor(private router:Router, private authService:AuthService,private datePipe: DatePipe,private matchesService:MatchesService) {
-  }
-  ngOnInit(){
-  this.isLoading=true;
-  this.authService.getGames().subscribe((data)=>{
-    if(data.status){
-      this.matchesRecordsData=data.programs;
-      this.matches=data.programs;
-      this.isLoading=false;
-    }
-  },(error)=>{
-
-      alert("Please login first to get matches");
-      this.isLoading=false;
-      this.router.navigate(['login'])
-    
-  })
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private datePipe: DatePipe,
+    private matchesService: MatchesService
+  ) {}
+  ngOnInit() {
+    this.isLoading = true;
+    this.authService.getGames().subscribe(
+      (data) => {
+        if (data.status) {
+          this.matchesRecordsData = data.programs;
+          this.matches = data.programs;
+          this.isLoading = false;
+        }
+      },
+      (error) => {
+        alert('Please login first to get matches');
+        this.isLoading = false;
+        this.router.navigate(['login']);
+      }
+    );
   }
   formatTime(timestamp: string): string {
     const date = new Date(Number(timestamp));
@@ -47,8 +52,8 @@ export class HomePage {
   onButtonClick(obj: any): void {
     this.matchesService.setObject(obj);
   }
-  toggleInput(){
-    this.showInput=!this.showInput;
+  toggleInput() {
+    this.showInput = !this.showInput;
   }
   private isValidDate(date: Date): boolean {
     return !isNaN(date.getTime());
@@ -58,7 +63,6 @@ export class HomePage {
 
     this.timerSubscription = timer(4000).subscribe(() => {
       this.showAlert = false;
-      
     });
   }
   filterRecords(records: any[], searchText: string): any[] {
@@ -69,12 +73,11 @@ export class HomePage {
     );
   }
   updateSearch(): void {
-    if(!this.searchText){
-      this.matches=this.matchesRecordsData;
-    }else{
-     this.matches= this.filterRecords(this.matches,this.searchText);
+    if (!this.searchText) {
+      this.matches = this.matchesRecordsData;
+    } else {
+      this.matches = this.filterRecords(this.matches, this.searchText);
     }
-   
   }
 
   ngOnDestroy(): void {

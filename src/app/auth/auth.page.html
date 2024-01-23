@@ -1,9 +1,7 @@
-
-
 <ion-content [fullscreen]="true">
   <div class="splash-screen-container" *ngIf="isLoading">
     <div class="loading-spinner">
-    </div>   
+    </div>
   </div>
   <div class="login-page-main-conatiner" *ngIf="!isLoading">
     <div class="section-0" (click)="goBack()">
@@ -12,8 +10,8 @@
     <div class="section-1">
       <img src="../../assets/Group 22968.png" alt="">
     </div>
-  
-  
+
+
     <div class="section-2">
       <h1>Welcome to New York</h1>
       <h2>Sport Association </h2>
@@ -22,40 +20,37 @@
     <div class="section-3">
       <h3>Let's Get Started</h3>
       <div class="login-form-contaner">
-       
-      
-          <div class="button-conyainer" (click)="setloginMethod('email')">
-              <div class="inner">
-                <div class="icon"><ion-icon name="at-outline"></ion-icon></div>
-                <div class="text">continue wih email</div>
-              </div>
-          </div>
-          <div class="button-conyainer" (click)="setloginMethod('phone')">
-            <div class="inner">
-              <div class="icon"><ion-icon name="call-outline"></ion-icon></div>
-              <div class="text">Continue wih Phone</div>
+
+
+        <div class="button-conyainer" (click)="setloginMethod('email')">
+          <div class="inner">
+            <div class="icon">
+              <ion-icon name="at-outline"></ion-icon>
             </div>
+            <div class="text">continue wih email</div>
+          </div>
+        </div>
+        <div class="button-conyainer" (click)="setloginMethod('phone')">
+          <div class="inner">
+            <div class="icon">
+              <ion-icon name="call-outline"></ion-icon>
+            </div>
+            <div class="text">Continue wih Phone</div>
+          </div>
         </div>
         <div class="button-conyainer" (click)="setloginMethod('username')">
           <div class="inner">
-            <div class="icon"><ion-icon name="person-outline"></ion-icon></div>
+            <div class="icon">
+              <ion-icon name="person-outline"></ion-icon>
+            </div>
             <div class="text">Continue wih User Name</div>
           </div>
-      </div>
-        
-        
-        
-        
-        
-        
-        
-       
-    
+        </div>
       </div>
     </div>
     <div class="section-footer">
       <h4>Continue as <span>Admin</span></h4>
     </div>
   </div>
-  
-  </ion-content>
+
+</ion-content>

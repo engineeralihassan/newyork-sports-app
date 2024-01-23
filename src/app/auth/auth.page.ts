@@ -10,12 +10,16 @@ import { Location } from '@angular/common';
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-isLoading=false;
-private timerSubscription: Subscription | undefined;
-  constructor(private authService:AuthService,private router:Router, private loc:Location) { }
+  isLoading = false;
+  private timerSubscription: Subscription | undefined;
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private loc: Location
+  ) {}
 
   ngOnInit(): void {
-    this.isLoading=true;
+    this.isLoading = true;
     if (this.authService.isLoggedin) {
       this.timerSubscription = timer(2000).subscribe(() => {
         this.isLoading = false;
@@ -27,12 +31,12 @@ private timerSubscription: Subscription | undefined;
       });
     }
   }
-  goBack(){
+  goBack() {
     this.loc.back();
   }
-  setloginMethod(method:any){
+  setloginMethod(method: any) {
     this.authService.setLoginMethod(method);
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 
   ngOnDestroy(): void {
@@ -40,5 +44,4 @@ private timerSubscription: Subscription | undefined;
       this.timerSubscription.unsubscribe();
     }
   }
-
 }

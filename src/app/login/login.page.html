@@ -1,58 +1,63 @@
-
-
 <ion-content [fullscreen]="true">
 
-<div class="login-page-main-conatiner">
-  <div class="section-0" (click)="goBack()">
-    <img src="../../assets/Group 23.png" alt="">
-  </div>
-  <div class="section-1">
-    <img src="../../assets/Group 22968.png" alt="">
-  </div>
+  <div class="login-page-main-conatiner">
+    <div class="section-0" (click)="goBack()">
+      <img src="../../assets/Group 23.png" alt="">
+    </div>
+    <div class="section-1">
+      <img src="../../assets/Group 22968.png" alt="">
+    </div>
 
 
-  <div class="section-2">
-    <h1>Sign In With Email</h1>
-    <h2>NYSA</h2>
-  </div>
-  <div class="section-3">
-
-     
-         <form  class="login-form" [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+    <div class="section-2">
+      <h1>Sign In With Email</h1>
+      <h2>NYSA</h2>
+    </div>
+    <div class="section-3">
 
 
-          <div class="button-conyainer" [ngClass]="{'errorBorder':isError.isUser}">
-            <div class="inner">
-              <div class="icon"><label class="label">{{loginMethod}}</label></div>
-              <div class="input"> <input type="text" placeholder="Enter your {{loginMethod}}" formControlName="username" autocomplete="off" > </div>
-            </div>
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+
+        <div class="button-conyainer" [ngClass]="{'errorBorder':isError.isUser}">
+          <div class="inner">
+            <div class="icon"><label class="label">{{loginMethod}}</label></div>
+            <div class="input"> <input type="text" placeholder="Enter your {{loginMethod}}" formControlName="username"
+                autocomplete="off"> </div>
+          </div>
         </div>
 
-        <p class="error-message" *ngIf="isError.isUser || (loginForm.get('username')?.dirty && loginForm.get('username')?.invalid)">
+        <p class="error-message"
+          *ngIf="isError.isUser || (loginForm.get('username')?.dirty && loginForm.get('username')?.invalid)">
           {{ isError.isUser ? 'This ' + loginMethod + ' is not exist' : 'Invalid ' + loginMethod }}
         </p>
-        
-   
+
+
         <div class="button-conyainer SECOND" [ngClass]="{'errorBorder': isError.isPassWrong}" *ngIf="isuserExist">
           <div class="inner">
             <div class="icon"><label class="label">Passward</label></div>
-            <div class="input"> <input type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Enter Passward" formControlName="password" autocomplete="off" > <ion-icon name="{{ hidePassword ? 'eye-off-sharp' : 'eye-sharp' }}" (click)="togglePasswordVisibility()"></ion-icon></div>
+            <div class="input"> <input type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Enter Passward"
+                formControlName="password" autocomplete="off">
+              <ion-icon name="{{ hidePassword ? 'eye-off-sharp' : 'eye-sharp' }}" (click)="togglePasswordVisibility()">
+              </ion-icon>
+            </div>
             <div class="forget-password" routerLink="/verification">Forget Password</div>
           </div>
         </div>
         <p class="error-message" *ngIf="isError.isPassWrong">Wrong password please try again</p>
-         </form>
+      </form>
 
-  
-      
 
+
+
+    </div>
+    <div class="section-footer">
+      <button type="submit" [disabled]="loginForm.invalid" (click)="onSubmit()">
+        <div class="loader" *ngIf="isLoading"></div>
+        <p *ngIf="!isLoading">Proceed <ion-icon class="icon" name="arrow-forward-outline" *ngIf="!isLoading"></ion-icon>
+        </p>
+      </button>
+    </div>
   </div>
-  <div class="section-footer">
-   <button type="submit" [disabled]="loginForm.invalid" (click)="onSubmit()" > <div class="loader" *ngIf="isLoading"></div><p *ngIf="!isLoading">Proceed <ion-icon class="icon" name="arrow-forward-outline" *ngIf="!isLoading"></ion-icon></p></button>
-  </div>
-</div>
 
 </ion-content>
-
-
-
