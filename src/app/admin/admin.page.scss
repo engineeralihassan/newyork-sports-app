@@ -1,0 +1,34 @@
+.topbar {
+  color: #fff;
+  --background: #a5ba8d;
+}
+.navbar-list-item {
+  color: #a5ba8d;
+  ion-icon {
+    color: #a5ba8d !important;
+  }
+}
+.navbar-list-item:hover {
+  background-color: #a5ba8d !important;
+  color: #ffff !important;
+  ion-icon {
+    color: #a5ba8d !important;
+  }
+}
+ion-badge {
+  color: #fff;
+  --background: #4d76b3;
+}
+ion-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.logout-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}

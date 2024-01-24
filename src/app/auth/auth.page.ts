@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
 import { Location } from '@angular/common';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-auth',
@@ -15,7 +16,8 @@ export class AuthPage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private loc: Location
+    private loc: Location,
+    private adminService: AdminService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,10 @@ export class AuthPage implements OnInit {
   }
   goBack() {
     this.loc.back();
+  }
+  asAdmin() {
+    this.adminService.setLoginAsAdmin(true);
+    this.router.navigate(['login']);
   }
   setloginMethod(method: any) {
     this.authService.setLoginMethod(method);

@@ -11,7 +11,7 @@
 
     <div class="section-2">
       <h1>Sign In With {{loginMethod}}</h1>
-      <h2>NYSA</h2>
+      <h2>{{loginAsAdmin?'as Admin':'NYSA'}}</h2>
     </div>
     <div class="section-3">
 
@@ -33,7 +33,8 @@
         </p>
 
 
-        <div class="button-conyainer SECOND" [ngClass]="{'errorBorder': isError.isPassWrong}" *ngIf="isuserExist">
+        <div class="button-conyainer SECOND" [ngClass]="{'errorBorder': isError.isPassWrong}"
+          *ngIf="isuserExist || loginAsAdmin">
           <div class="inner">
             <div class="icon"><label class="label">Passward</label></div>
             <div class="input"> <input type="{{ hidePassword ? 'password' : 'text' }}" placeholder="Enter Passward"

@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +17,18 @@ export class LoginPage implements OnInit {
   isError = { isUser: false, isPassWrong: false };
   isLoading = false;
   loginMethod: any;
+  loginAsAdmin: any;
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
-    private loc: Location
+    private loc: Location,
+    private adminService: AdminService
   ) {}
 
   ngOnInit(): void {
     this.loginMethod = this.authService.loginMethod;
+    this.loginAsAdmin = this.adminService.loginAsAdmin;
     this.initLoginForm();
   }
   togglePasswordVisibility() {
@@ -35,6 +39,9 @@ export class LoginPage implements OnInit {
       username: [''],
       password: [''],
     });
+    if (this.loginAsAdmin) {
+      this.loginForm.get('password')?.setValidators([Validators.required]);
+    }
     if (this.loginMethod === 'email') {
       this.loginForm
         .get('username')
