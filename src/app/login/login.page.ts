@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AdminService } from '../services/admin.service';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,21 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  private timerSubscription: Subscription | undefined;
   loginForm!: FormGroup;
   hidePassword: boolean = true;
   isuserExist = false;
-  isError = { isUser: false, isPassWrong: false };
+  isError = {
+    isUser: false,
+    isPassWrong: false,
+    isAdminWrong: false,
+    adminLoginSuccess: false,
+  };
   isLoading = false;
   loginMethod: any;
   loginAsAdmin: any;
+  showAlert: any;
+  errorMesg = 'Something went wrong try again';
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -62,7 +71,9 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       this.isLoading = true;
       const formData = this.loginForm.value;
-      if (this.isuserExist) {
+      if (this.adminService.loginAsAdmin) {
+        this.loginAdminProceed(formData);
+      } else if (this.isuserExist) {
         this.login(formData);
       } else {
         this.authService.user = formData;
@@ -70,7 +81,30 @@ export class LoginPage implements OnInit {
       }
     }
   }
-
+  loginAdminProceed(data: any) {
+    this.isLoading = true;
+    this.adminService.loginAdminProceed(data).subscribe(
+      (data) => {
+        this.isLoading = false;
+        if (data.status) {
+          localStorage.setItem('nasaAdminTocken', data.accessToken);
+          console.log('The data as admin', data);
+          this.isError.isAdminWrong = false;
+          this.isError.adminLoginSuccess = true;
+          this.timerSubscription = timer(4000).subscribe(() => {
+            this.isError.adminLoginSuccess = false;
+            this.router.navigate(['admin']);
+          });
+        } else {
+          this.isError.isAdminWrong = true;
+        }
+      },
+      (error) => {
+        this.isLoading = false;
+        this.showAndHideAlert();
+      }
+    );
+  }
   findUser(data: any) {
     this.authService.findUser(data).subscribe(
       (data) => {
@@ -95,7 +129,13 @@ export class LoginPage implements OnInit {
       }
     );
   }
-
+  showAndHideAlert(): void {
+    this.showAlert = true;
+    console.log('Errorrorroorooror');
+    this.timerSubscription = timer(4000).subscribe(() => {
+      this.showAlert = false;
+    });
+  }
   login(data: any) {
     this.authService.logIn(data).subscribe(
       (data) => {

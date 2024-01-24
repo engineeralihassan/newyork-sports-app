@@ -229,3 +229,44 @@ button:disabled {
 label {
   text-transform: capitalize;
 }
+
+.opt-succees-alert {
+  width: 50%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .icon {
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 40px;
+    margin-right: 20px;
+  }
+}
+.error-otp-alert {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 10px;
+  .icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 40px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .opt-succees-alert,
+  .error-otp-alert {
+    width: 100% !important;
+  }
+}

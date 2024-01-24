@@ -13,6 +13,25 @@
       <h1>Sign In With {{loginMethod}}</h1>
       <h2>{{loginAsAdmin?'as Admin':'NYSA'}}</h2>
     </div>
+
+    <div class="alert alert-success d-flex align-items-center opt-succees-alert" role="alert"
+      *ngIf="isError.adminLoginSuccess">
+      <div class="icon">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+      </div>
+      <div>
+        Your Otp verified successfully
+      </div>
+    </div>
+    <div class="alert alert-danger d-flex align-items-center error-otp-alert" role="alert" *ngIf="isError.isAdminWrong">
+      <div class="icon">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+      </div>
+      <div>
+        Wrong Credentials please try again
+      </div>
+    </div>
+
     <div class="section-3">
 
 
@@ -46,6 +65,7 @@
           </div>
         </div>
         <p class="error-message" *ngIf="isError.isPassWrong">Wrong password please try again</p>
+        <p class="error-message" *ngIf="isError.isAdminWrong">Wrong Credentials please correct and try again</p>
       </form>
 
 
@@ -62,3 +82,4 @@
   </div>
 
 </ion-content>
+<app-error-alert [showAlert]="showAlert" [mesg]="errorMesg"></app-error-alert>

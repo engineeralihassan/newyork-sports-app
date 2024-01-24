@@ -12,14 +12,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorAlertComponent } from './error-alert/error-alert.component';
-
-
-
+import { SharedModule } from './Shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent,ModelAlertComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,HttpClientModule,FormsModule,ReactiveFormsModule],
+  declarations: [AppComponent, ModelAlertComponent],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent,],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
