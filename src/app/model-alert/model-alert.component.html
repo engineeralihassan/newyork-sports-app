@@ -1,6 +1,5 @@
-
-
-<div class="modal fade first-model " id="staticBackdrop"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade first-model " id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true" #contentModel>
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
@@ -9,8 +8,8 @@
         <p>Do you want to logout?</p>
 
         <div class="logout-btn">
-          <button class="btn btn-1" type="button"  data-bs-dismiss="modal">Not Now</button>
-          <button class="btn btn-2" (click)="logout()" type="button"  data-bs-dismiss="modal">Logout</button>
+          <button class="btn btn-1" type="button" data-bs-dismiss="modal">Not Now</button>
+          <button class="btn btn-2" (click)="logout()" type="button" data-bs-dismiss="modal">Logout</button>
         </div>
       </div>
 
@@ -21,20 +20,34 @@
 <!-- selfie  model -->
 
 
-<div class="modal fade first-model  second-model" id="staticBackdrop-selfie"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade first-model  second-model" id="staticBackdrop-selfie" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog  selfie-modal-dialog ">
     <div class="modal-content">
       <div class="modal-body">
         <div class="line"></div>
         <h2>Check In</h2>
-        <div class="text"> <p>{{ checkInData?.team1}}</p> <span> vs </span> <p>{{checkInData?.team2}}</p></div>
+        <div class="text">
+          <p>{{ checkInData?.team1}}</p> <span> vs </span>
+          <p>{{checkInData?.team2}}</p>
+        </div>
         <div class="location-tab">
-         
-          <div class="box-1"> <ion-icon name="location-outline"></ion-icon>  <div class="icon">{{checkInData?.locationName}}</div></div>
-          <div class="box-1 box-2"> <div class="circle"><ion-icon name="checkmark-outline"></ion-icon></div>   <div class="icon">you are on permissions</div></div>
+
+          <div class="box-1">
+            <ion-icon name="location-outline"></ion-icon>
+            <div class="icon">{{checkInData?.locationName}}</div>
+          </div>
+          <div class="box-1 box-2">
+            <div class="circle">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+            <div class="icon">you are on permissions</div>
+          </div>
         </div>
         <div class="logout-btn">
-          <button class="btn btn-2"   data-bs-dismiss="modal" (click)="addPhotoToGallery()"> <ion-icon name="camera-outline" ></ion-icon>  Take a selfie</button>
+          <button class="btn btn-2" data-bs-dismiss="modal" (click)="addPhotoToGallery()">
+            <ion-icon name="camera-outline"></ion-icon> Take a selfie
+          </button>
         </div>
       </div>
 
@@ -43,17 +56,34 @@
 </div>
 <!-- third model -->
 
-<div class="modal fade first-model  second-model" id="staticBackdrop-proceed"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade first-model  second-model" id="staticBackdrop-proceed" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog  selfie-modal-dialog ">
     <div class="modal-content">
       <div class="modal-body">
         <div class="line"></div>
         <h2>Check In</h2>
-        <div class="text"> <p>{{checkInData?.team1}}</p> <span> vs </span> <p>{{checkInData?.team2}}</p></div>
+        <div class="text">
+          <p>{{checkInData?.team1}}</p> <span> vs </span>
+          <p>{{checkInData?.team2}}</p>
+        </div>
         <div class="location-tab">
-          <div class="box-1"> <ion-icon name="location-outline"></ion-icon>  <div class="icon">{{checkInData?.locationName}}</div></div>
-          <div class="box-1 box-2"> <div class="circle"><ion-icon name="checkmark-outline"></ion-icon></div>   <div class="icon">you are on permissions</div></div>
-          <div class="box-1 box-2"> <div class="circle"><ion-icon name="checkmark-outline"></ion-icon></div>   <div class="icon">Photo</div></div>
+          <div class="box-1">
+            <ion-icon name="location-outline"></ion-icon>
+            <div class="icon">{{checkInData?.locationName}}</div>
+          </div>
+          <div class="box-1 box-2">
+            <div class="circle">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+            <div class="icon">you are on permissions</div>
+          </div>
+          <div class="box-1 box-2">
+            <div class="circle">
+              <ion-icon name="checkmark-outline"></ion-icon>
+            </div>
+            <div class="icon">Photo</div>
+          </div>
         </div>
 
         <div class="profile-photo">
@@ -61,7 +91,8 @@
         </div>
 
         <div class="logout-btn">
-          <button class="btn btn-2" (click)="onProceed()"  data-bs-dismiss="modal">Proceed<ion-icon name="arrow-forward-outline"></ion-icon>  </button>
+          <button class="btn btn-2" (click)="onProceed()" data-bs-dismiss="modal">Proceed<ion-icon
+              name="arrow-forward-outline"></ion-icon> </button>
         </div>
       </div>
 
@@ -70,16 +101,17 @@
 </div>
 
 
-<div class="modal fade first-model  " id="EmailSendSuccess"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="ApprovedSuccessLabel" aria-hidden="true">
+<div class="modal fade first-model  " id="EmailSendSuccess" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="ApprovedSuccessLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
         <div class="line"></div>
-       <div class="img">
-        <ion-icon name="checkmark-outline"></ion-icon>
-       </div>
+        <div class="img">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </div>
         <p>Opt has sent to your Email address</p>
-        <button class="email-btn" (click)="navigations()" type="button"  data-bs-dismiss="modal"> Verify-OTP</button>
+        <button class="email-btn" (click)="navigations()" type="button" data-bs-dismiss="modal"> Verify-OTP</button>
       </div>
 
     </div>
