@@ -1,10 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { DatePipe } from '@angular/common';
 import { MatchesService } from '../services/matches.service';
 import { Subscription, timer } from 'rxjs';
-
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { AdminService } from '../services/admin.service';
@@ -14,13 +12,7 @@ import { AdminService } from '../services/admin.service';
   styleUrls: ['./admin.page.scss'],
 })
 export class AdminPage {
-  items: any = [];
-  isAuthenticated: boolean = false;
-  user: any = null;
-  isShopPage: boolean = false;
-  cartLength: number = 0;
   limit = 50;
-  favLength: number = 0;
   navigate: any;
   page: number = 1;
   @ViewChild('myButton') myButton!: ElementRef;
@@ -33,57 +25,9 @@ export class AdminPage {
   showAlert = false;
   errorMesg = 'something went wrong try again';
   isLoadMoreData: any = true;
-  reSetRecords(ev: any) {
-    console.log('serched value is ', ev.target.value);
-    console.log('Hello mr calls');
-    if (!this.searchText) {
-      this.isLoading = true;
-      this.matches = [];
-      this.matchesRecordsData = [];
-      this.getAllGames('', this.page, this.limit, this.searchText);
-    }
-  }
-  loadMoreData(event: any) {
-    console.log('The data is loadedmore called');
-    this.page += 1;
-    let data = { programState: '' };
-    let newParams = {
-      page: this.page,
-      limit: this.limit,
-      search: this.searchText,
-    };
-
-    console.log('i am in if condition');
-    this.adminService.GetMatchesAsAdmin(data, newParams).subscribe(
-      (data: any) => {
-        console.log('Params are fetched::', data);
-        if (data.status) {
-          this.matches = [...this.matches, ...data.games];
-          this.matchesRecordsData = [...this.matches];
-          console.log(
-            'Matched',
-            this.matches,
-            'hhhhhhhh',
-            this.matchesRecordsData
-          );
-          this.isLoading = false;
-          (event.target as HTMLIonInfiniteScrollElement).complete();
-        }
-      },
-      (error) => {
-        this.isLoading = false;
-        this.showAndHideAlert();
-        this.errorMesg = 'Please Login first your token is expired ';
-        this.router.navigate(['auth']);
-        (event.target as HTMLIonInfiniteScrollElement).complete();
-      }
-    );
-  }
-
   constructor(
     private platform: Platform,
     private router: Router,
-    private authService: AuthService,
     private datePipe: DatePipe,
     private matchesService: MatchesService,
     private adminService: AdminService
@@ -93,6 +37,40 @@ export class AdminPage {
     this.isLoading = true;
     this.getAllGames('', this.page, this.limit, this.searchText);
   }
+  reSetRecords(ev: any) {
+    if (!this.searchText) {
+      this.isLoading = true;
+      this.matches = [];
+      this.matchesRecordsData = [];
+      this.getAllGames('', this.page, this.limit, this.searchText);
+    }
+  }
+  loadMoreData(event: any) {
+    this.page += 1;
+    let data = { programState: '' };
+    let newParams = {
+      page: this.page,
+      limit: this.limit,
+      search: this.searchText,
+    };
+    this.adminService.GetMatchesAsAdmin(data, newParams).subscribe(
+      (data: any) => {
+        if (data.status) {
+          this.matches = [...this.matches, ...data.games];
+          this.matchesRecordsData = [...this.matches];
+          this.isLoading = false;
+          (event.target as HTMLIonInfiniteScrollElement).complete();
+        }
+      },
+      (error) => {
+        this.isLoading = false;
+        this.showAndHideAlert();
+        this.errorMesg = 'Please Login first your token is expired ';
+        (event.target as HTMLIonInfiniteScrollElement).complete();
+      }
+    );
+  }
+
   getAllGames(progState: any, page: any, limit: any, search: any) {
     this.matches = [];
     this.matchesRecordsData = [];
@@ -104,20 +82,11 @@ export class AdminPage {
     };
     this.adminService.GetMatchesAsAdmin(data, newParams).subscribe(
       (data: any) => {
-        console.log('Params are fetched::', data);
         if (data.status) {
           this.matches = [...this.matches, ...data.games];
           this.matchesRecordsData = [...this.matches];
-          console.log(
-            'Matched',
-            this.matches,
-            'hhhhhhhh',
-            this.matchesRecordsData
-          );
           this.isLoading = false;
-          console.log('Hellloooooooo');
           if (this.matches.length < this.limit) {
-            console.log('The data is loaded no more');
             this.isLoadMoreData = false;
           }
         }
@@ -125,8 +94,7 @@ export class AdminPage {
       (error) => {
         this.isLoading = false;
         this.showAndHideAlert();
-        this.errorMesg = 'Please Login first your tocken is expired ';
-        this.router.navigate(['auth']);
+        this.errorMesg = 'Something went wrong try again';
       }
     );
   }
@@ -136,13 +104,10 @@ export class AdminPage {
     return formattedTime || '';
   }
   onButtonClick(obj: any): void {
-    this.matchesService.setObject(obj);
+    console.log('The details button click');
   }
   toggleInput() {
     this.showInput = !this.showInput;
-  }
-  private isValidDate(date: Date): boolean {
-    return !isNaN(date.getTime());
   }
   showAndHideAlert(): void {
     this.showAlert = true;
@@ -153,16 +118,11 @@ export class AdminPage {
 
   searchData() {
     this.page = 1;
-    console.log('Hello mr calls');
     if (this.searchText) {
       this.isLoading = true;
       this.matches = [];
       this.matchesRecordsData = [];
       this.getAllGames('', this.page, this.limit, this.searchText);
-    } else {
-      this.matches = [];
-      this.matchesRecordsData = [];
-      this.getAllGames('', this.page, this.page, this.searchText);
     }
   }
 
