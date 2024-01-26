@@ -1,6 +1,44 @@
+<div class="user-details-content">
+  <div class="player-info-header">
+    <div class="icon">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </div>
+    <div class="tex">
+      <h2>Player info</h2>
+    </div>
+  </div>
   <div class="model-loader-container" *ngIf="loading">
     <div class="loaderModel"></div>
   </div>
-  <div class="user-details-content" *ngIf="!loading">
-    <h1>hhehehehehehehe</h1>
+  <div class="player-info-container" *ngIf="!loading">
+    <div class="img">
+      <img
+        [src]="userData?.photo?url+'/'+userData?.photo:'../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png'"
+        alt="">
+    </div>
+
   </div>
+</div>
+<div class="user-details-content-section">
+  <div class="detail-colum">
+    <p>Name</p>
+    <p>{{userData?.username}}</p>
+  </div>
+  <div class="detail-colum">
+    <p>Name</p>
+    <p>{{userData?.username}}</p>
+  </div>
+  <div class="detail-colum">
+    <p>Name</p>
+    <p>{{userData?.username}}</p>
+  </div>
+  <div class="detail-colum">
+    <p>Name</p>
+    <p>{{userData?.username}}</p>
+  </div>
+  <div class="detail-colum">
+    <p>Name</p>
+    <p>{{userData?.username}}</p>
+  </div>
+
+</div>

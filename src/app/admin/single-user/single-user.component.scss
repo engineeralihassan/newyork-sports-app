@@ -1,6 +1,6 @@
 .model-loader-container {
   width: 100%;
-  height: 100%;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,5 +23,61 @@
 @keyframes l27 {
   100% {
     transform: rotate(1turn);
+  }
+}
+
+.player-info-header {
+  padding: 20px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 14px;
+  font-weight: bold;
+
+  .icon {
+    font-size: 25px;
+  }
+  .text {
+    font-weight: bold;
+    color: black;
+  }
+}
+.player-info-container {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  .img {
+    width: 100%;
+    max-height: 200px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  }
+}
+.user-details-content-section {
+  padding: 20px;
+  width: 100% !important;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 1px solid red;
+  .detail-colum {
+    margin-top: 10px;
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 }
