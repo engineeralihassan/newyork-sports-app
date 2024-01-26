@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 export class AdminService {
   loginAsAdmin = false;
   apiUrl = environment.admin;
+  singleUser: any;
+
   constructor(private router: Router, private http: HttpClient) {}
   setLoginAsAdmin(login: any) {
     this.loginAsAdmin = login;
@@ -29,5 +31,11 @@ export class AdminService {
     return this.http.post(`${this.apiUrl}/getAllGames`, data, {
       params: params,
     });
+  }
+  getCheckins(data: any) {
+    return this.http.post(`${this.apiUrl}/getCheckIns`, data);
+  }
+  getsingleUser(data: any) {
+    return this.http.post(`${this.apiUrl}/getUserDetails`, data);
   }
 }

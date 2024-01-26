@@ -1,4 +1,10 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  ElementRef,
+  ViewChildren,
+  QueryList,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatchesService } from 'src/app/services/matches.service';
@@ -6,6 +12,8 @@ import { Subscription, timer } from 'rxjs';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { Platform } from '@ionic/angular';
 import { AdminService } from 'src/app/services/admin.service';
+import { ModalController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-main-page',
@@ -26,12 +34,22 @@ export class MainPageComponent {
   showAlert = false;
   errorMesg = 'something went wrong try again';
   isLoadMoreData: any = true;
+  isOpenModal: boolean = false;
+  modalContent!: string;
+  modalElement!: HTMLElement;
+  modelLoading = false;
+  isSearching = false;
+  modelData: any;
+  apiUrl = environment.admin;
+  activeIndex: number = -1;
+
   constructor(
     private platform: Platform,
     private router: Router,
     private datePipe: DatePipe,
     private matchesService: MatchesService,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
@@ -39,9 +57,45 @@ export class MainPageComponent {
     this.getAllGames('', this.page, this.limit, this.searchText);
   }
 
+  fetchSingleUser(user: any) {
+    console.log('the user is ::', user);
+    this.adminService.singleUser = user;
+    this.closeModal();
+    setTimeout(() => {
+      this.router.navigate(['/admin/user']);
+    }, 200);
+  }
+  openModal1(index: number, match: any) {
+    console.log('Match is ::', match);
+    let newobj = { gameId: match.gameId };
+    this.modelLoading = true;
+    this.adminService.getCheckins(newobj).subscribe((data: any) => {
+      console.log('model data sjsss', data.game);
+      if (data.status) {
+        this.modelData = data.game;
+      }
+      this.modelLoading = false;
+    });
+
+    if (this.activeIndex === index && this.isOpenModal) {
+      this.closeModal();
+    } else {
+      this.isOpenModal = true;
+      this.activeIndex = index;
+    }
+  }
+  backdropTaped() {
+    this.closeModal();
+  }
+
+  closeModal() {
+    this.isOpenModal = false;
+    this.activeIndex = -1;
+  }
+
   reSetRecords(ev: any) {
     if (!this.searchText) {
-      this.isLoading = true;
+      this.isSearching = true;
       this.matches = [];
       this.matchesRecordsData = [];
       this.getAllGames('', this.page, this.limit, this.searchText);
@@ -76,6 +130,9 @@ export class MainPageComponent {
   openModal() {
     this.myButton.nativeElement.click();
   }
+  formateDateTime(time: any) {
+    return this.datePipe.transform(time, 'EEE, MMM d, yyyy');
+  }
 
   getAllGames(progState: any, page: any, limit: any, search: any) {
     this.matches = [];
@@ -92,6 +149,7 @@ export class MainPageComponent {
           this.matches = [...this.matches, ...data.games];
           this.matchesRecordsData = [...this.matches];
           this.isLoading = false;
+          this.isSearching = false;
           if (this.matches.length < this.limit) {
             this.isLoadMoreData = false;
           }
@@ -111,6 +169,7 @@ export class MainPageComponent {
   }
   onButtonClick(obj: any): void {
     console.log('The details button click');
+    this.router.navigate(['admin/usersdetail']);
   }
 
   toggleInput() {
@@ -126,7 +185,7 @@ export class MainPageComponent {
   searchData() {
     this.page = 1;
     if (this.searchText) {
-      this.isLoading = true;
+      this.isSearching = true;
       this.matches = [];
       this.matchesRecordsData = [];
       this.getAllGames('', this.page, this.limit, this.searchText);

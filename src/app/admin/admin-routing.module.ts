@@ -11,9 +11,9 @@ const routes: Routes = [
     path: '',
     component: AdminPage,
     children: [
-      { path: 'singleuser/:id', component: SingleUserComponent },
+      { path: 'user', component: SingleUserComponent },
       { path: 'matches', component: MainPageComponent },
-      { path: 'details', component: DetailsComponent },
+      { path: 'usersdetail', component: DetailsComponent },
       { path: '', redirectTo: 'matches', pathMatch: 'full' },
     ],
   },

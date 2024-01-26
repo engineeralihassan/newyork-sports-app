@@ -6,6 +6,7 @@
       </ion-menu-toggle>
     </div>
   </div>
+
   <div class="sidebar-section-2">
     <img
       src="../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png"
@@ -39,7 +40,10 @@
     </div>
 
   </div>
-  <div class="main-app-screen" *ngIf="!isLoading">
+  <div class="model-loader-container" *ngIf="isSearching">
+    <div class="loaderModel"></div>
+  </div>
+  <div class="main-app-screen" *ngIf="!isLoading && !isSearching">
     <div class="splash-screen-container" *ngIf="isLoading">
       <img src="../../../assets/Group 22968.png" alt="">
     </div>
@@ -70,14 +74,15 @@
       </div>
     </div>
     <div class="all-matches-section-container" *ngIf="!isLoading">
-      <div class="match-box" *ngFor="let match of matches">
+      <div class="match-box" *ngFor="let match of matches; let i = index">
         <div class="match-box-header">
           <div class="text">
             <p>{{match?.team1}}</p> <span> vs </span>
             <p> {{match?.team2}}</p>
           </div>
-          <div class="btns"><button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-selfie"
-              class="checkin-btn" (click)="onButtonClick(match)">Details</button></div>
+          <div class="btns"><button class="checkin-btn" (click)="openModal1(i,match)" expand="block">
+              Details
+            </button></div>
         </div>
 
         <div class="match-profile-content">
@@ -113,6 +118,8 @@
         </ion-infinite-scroll-content>
       </ion-infinite-scroll>
     </div>
+
+
     <div class="padding-space"></div>
 
 
@@ -126,7 +133,73 @@
       </div>
     </div>
 
+    <ion-modal [isOpen]="isOpenModal" (closed)="closeModal()" [initialBreakpoint]="1" [breakpoints]="[0, 1]"
+      (ionBackdropTap)="backdropTaped()">
+      <ng-template>
+        <div class="block">
+          <div class="model-loader-container" *ngIf="modelLoading">
+            <div class="loaderModel"></div>
+          </div>
+          <div class="details-page-main-container" *ngIf="!modelLoading">
+            <div class="details-content-container">
+              <h1>Match Details</h1>
+              <div class="match-details-table">
+                <div class="table-row">
+                  <div class="small-section">
+                    <p class="h3">Team 1</p>
+                    <p>{{modelData?.team1}}</p>
+                  </div>
+                  <div class="small-section">
+                    <p class="h3">Team 2</p>
+                    <p>{{modelData?.team2}}</p>
+                  </div>
+                  <div class="small-section">
+                    <p class="h3">Start Time</p>
+                    <p>{{ formatTime(modelData?.startTime
+            ) }}</p>
+                  </div>
+                  <div class="small-section">
+                    <p class="h3">Date/Time
+                    </p>
+                    <p>{{formateDateTime(modelData?.startTime)}}</p>
+                  </div>
+                  <div class="small-section">
+                    <p class="h3">Program State</p>
+                    <p>{{modelData?.programState}}</p>
+                  </div>
+                  <div class="small-section">
+                    <p class="h3">Program Name
+                    </p>
+                    <p>Sunday 11:00am</p>
+                  </div>
 
+                </div>
+                <div class="checkedIn-players">
+                  <h2>Checked in players</h2>
+                  <div class="empty-chechin-message" *ngIf="!modelData?.checkIns.length">
+                    <div class="icon">
+                      <ion-icon name="people-circle-outline"></ion-icon>
+                    </div>
+                    <h3>No Checked in player found</h3>
+                  </div>
+                  <div class="players-boxes" *ngIf="modelData?.checkIns.length">
+                    <div class="play-box" *ngFor="let box of modelData?.checkIns" (click)="fetchSingleUser(box)">
+                      <img
+                        [src]="box.photo? apiUrl+'/'+box.photo:'../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png'"
+                        alt="">
+                      <p>{{box.username? box.username :"No name"}}</p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </ng-template>
+    </ion-modal>
 
   </div>
 
@@ -134,6 +207,7 @@
     data-bs-target="#staticBackdrop-proceed">Send Email</button>
   <button class="btn second-btn-non" #myButton2 type="button" data-bs-toggle="modal"
     data-bs-target="#staticBackdrop">logout</button>
+
 </ion-content>
 <ion-footer *ngIf="!isLoading">
   <ion-toolbar class="home-page-footer">
