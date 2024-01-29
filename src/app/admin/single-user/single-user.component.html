@@ -19,7 +19,7 @@
 
   </div>
 </div>
-<div class="user-details-content-section">
+<div class="user-details-content-section" *ngIf="!loading">
   <div class="detail-colum">
     <p>Name</p>
     <p>{{userData?.username}}</p>
@@ -41,4 +41,7 @@
     <p>{{userData?.username}}</p>
   </div>
 
+</div>
+<div class="button">
+  <button routerLink="/admin">Back</button>
 </div>

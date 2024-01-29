@@ -241,8 +241,8 @@
 
 @media (max-width: 600px) {
   .section-footer {
-    position: absolute !important;
-    top: 98%;
+    position: relative !important;
+    top: 100% !important;
   }
 }
 .section-footer {

@@ -63,7 +63,7 @@ export class MainPageComponent {
     this.closeModal();
     setTimeout(() => {
       this.router.navigate(['/admin/user']);
-    }, 200);
+    }, 1000);
   }
   openModal1(index: number, match: any) {
     console.log('Match is ::', match);
