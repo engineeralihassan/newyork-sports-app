@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatchesService } from '../services/matches.service';
+import { MatchesService } from '../../services/matches.service';
 
 @Component({
   selector: 'app-model-alert',

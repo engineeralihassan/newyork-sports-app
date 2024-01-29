@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { ErrorAlertComponent } from '../error-alert/error-alert.component';
-import { ManuTabsComponent } from '../manu-tabs/manu-tabs.component';
+import { ErrorAlertComponent } from './error-alert/error-alert.component';
+import { ManuTabsComponent } from './manu-tabs/manu-tabs.component';
+import { ModelAlertComponent } from './model-alert/model-alert.component';
 
 @NgModule({
-  declarations: [ErrorAlertComponent, ManuTabsComponent],
+  declarations: [ErrorAlertComponent, ManuTabsComponent, ModelAlertComponent],
   imports: [CommonModule, IonicModule],
-  exports: [CommonModule, IonicModule, ErrorAlertComponent, ManuTabsComponent],
+  exports: [
+    CommonModule,
+    IonicModule,
+    ErrorAlertComponent,
+    ManuTabsComponent,
+    ModelAlertComponent,
+  ],
 })
 export class SharedModule {}
