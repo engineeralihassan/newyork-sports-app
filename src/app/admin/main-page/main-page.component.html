@@ -40,10 +40,8 @@
     </div>
 
   </div>
-  <div class="model-loader-container" *ngIf="isSearching">
-    <div class="loaderModel"></div>
-  </div>
-  <div class="main-app-screen" *ngIf="!isLoading && !isSearching">
+
+  <div class="main-app-screen" *ngIf="!isLoading">
     <div class="splash-screen-container" *ngIf="isLoading">
       <img src="../../../assets/Group 22968.png" alt="">
     </div>
@@ -73,8 +71,11 @@
         </div>
       </div>
     </div>
-    <div class="all-matches-section-container" *ngIf="!isLoading">
-      <div class="match-box" *ngFor="let match of matches; let i = index">
+    <div class="model-loader-container" *ngIf="isSearching">
+      <div class="loaderModel"></div>
+    </div>
+    <div class="all-matches-section-container" *ngIf="!isSearching">
+      <div class=" match-box" *ngFor="let match of matches; let i = index">
         <div class="match-box-header">
           <div class="text">
             <p>{{match?.team1}}</p> <span> vs </span>
@@ -123,7 +124,7 @@
     <div class="padding-space"></div>
 
 
-    <div class="norecords-section" *ngIf="!matches?.length">
+    <div class="norecords-section" *ngIf="!matches?.length && !isSearching">
       <div class="inner">
         <div class="icon">
           <img src="../../../assets/undraw_Joyride_re_968t.png" alt="">
