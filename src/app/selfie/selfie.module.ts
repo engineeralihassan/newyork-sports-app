@@ -7,7 +7,6 @@ import { SelfiePage } from './selfie.page';
 import { SelfieScreen1Component } from './selfie-screen1/selfie-screen1.component';
 import { SelfieScreen3Component } from './selfie-screen3/selfie-screen3.component';
 import { SelfieScreen2Component } from './selfie-screen2/selfie-screen2.component';
-import { SelfieScreen4Component } from './selfie-screen4/selfie-screen4.component';
 import { SharedModule } from '../Shared/shared.module';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { SharedModule } from '../Shared/shared.module';
     SelfieScreen1Component,
     SelfieScreen3Component,
     SelfieScreen2Component,
-    SelfieScreen4Component,
   ],
 })
 export class SelfiePageModule {}
