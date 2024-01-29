@@ -1,7 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { environment } from 'src/environments/environment';
-
 @Component({
   selector: 'app-single-user',
   templateUrl: './single-user.component.html',
@@ -12,13 +12,17 @@ export class SingleUserComponent implements OnInit {
   userData: any;
   loading: any = false;
   url = environment.admin;
-  constructor(private adminService: AdminService) {
+  constructor(private adminService: AdminService, private datePipe: DatePipe) {
     this.user = adminService.singleUser;
   }
 
   ngOnInit() {
     let newuser = { userId: this.user?.userId };
     this.singleUser(newuser);
+  }
+  transformDate(dateString: string): string | null {
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'EEE, MMMM dd, yyyy');
   }
   singleUser(user: any) {
     this.loading = true;

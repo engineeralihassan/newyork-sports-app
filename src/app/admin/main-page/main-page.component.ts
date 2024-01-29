@@ -35,13 +35,14 @@ export class MainPageComponent {
   errorMesg = 'something went wrong try again';
   isLoadMoreData: any = true;
   isOpenModal: boolean = false;
-  modalContent!: string;
   modalElement!: HTMLElement;
   modelLoading = false;
   isSearching = false;
   modelData: any;
   apiUrl = environment.admin;
   activeIndex: number = -1;
+  activeFilter: string = 'All Matches';
+  progamState: any = '';
 
   constructor(
     private platform: Platform,
@@ -54,7 +55,7 @@ export class MainPageComponent {
 
   ngOnInit() {
     this.isLoading = true;
-    this.getAllGames('', this.page, this.limit, this.searchText);
+    this.getAllGames(this.progamState, this.page, this.limit, this.searchText);
   }
 
   fetchSingleUser(user: any) {
@@ -92,18 +93,46 @@ export class MainPageComponent {
     this.isOpenModal = false;
     this.activeIndex = -1;
   }
+  setActiveFilter(filter: string) {
+    this.isSearching = true;
+    this.page = 1;
+    this.activeFilter = filter;
+    if (filter.includes('All')) {
+      this.progamState = '';
+      this.getAllGames(
+        this.progamState,
+        this.page,
+        this.limit,
+        this.searchText
+      );
+    } else {
+      this.progamState = 'COMPLETED';
+      this.getAllGames(
+        this.progamState,
+        this.page,
+        this.limit,
+        this.searchText
+      );
+    }
+  }
 
   reSetRecords(ev: any) {
+    this.isLoadMoreData = true;
     if (!this.searchText) {
       this.isSearching = true;
       this.matches = [];
       this.matchesRecordsData = [];
-      this.getAllGames('', this.page, this.limit, this.searchText);
+      this.getAllGames(
+        this.progamState,
+        this.page,
+        this.limit,
+        this.searchText
+      );
     }
   }
   loadMoreData(event: any) {
     this.page += 1;
-    let data = { programState: '' };
+    let data = { programState: this.progamState };
     let newParams = {
       page: this.page,
       limit: this.limit,
@@ -116,6 +145,12 @@ export class MainPageComponent {
           this.matchesRecordsData = [...this.matches];
           this.isLoading = false;
           (event.target as HTMLIonInfiniteScrollElement).complete();
+        }
+        if (data.games.length < 50) {
+          this.isLoadMoreData = false;
+          console.log('progrma to vr gia33');
+        } else {
+          console.log('progrma to vr gia');
         }
       },
       (error) => {
@@ -188,7 +223,12 @@ export class MainPageComponent {
       this.isSearching = true;
       this.matches = [];
       this.matchesRecordsData = [];
-      this.getAllGames('', this.page, this.limit, this.searchText);
+      this.getAllGames(
+        this.progamState,
+        this.page,
+        this.limit,
+        this.searchText
+      );
     }
   }
 

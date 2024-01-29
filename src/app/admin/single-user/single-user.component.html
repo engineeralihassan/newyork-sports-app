@@ -21,24 +21,25 @@
 </div>
 <div class="user-details-content-section" *ngIf="!loading">
   <div class="detail-colum">
-    <p>Name</p>
+    <p>User Name</p>
     <p>{{userData?.username}}</p>
   </div>
   <div class="detail-colum">
-    <p>Name</p>
-    <p>{{userData?.username}}</p>
+    <p>Email</p>
+    <p>{{userData?.email}}</p>
   </div>
   <div class="detail-colum">
-    <p>Name</p>
-    <p>{{userData?.username}}</p>
+    <p>Date of join</p>
+    <p>{{transformDate(userData?.dateJoined
+)}}</p>
   </div>
   <div class="detail-colum">
-    <p>Name</p>
-    <p>{{userData?.username}}</p>
+    <p>Phone</p>
+    <p>{{userData?.mobilePhone}}</p>
   </div>
   <div class="detail-colum">
-    <p>Name</p>
-    <p>{{userData?.username}}</p>
+    <p>City</p>
+    <p>{{userData?.city}}</p>
   </div>
 
 </div>

@@ -637,3 +637,22 @@ ion-modal {
     font-weight: bold;
   }
 }
+
+.matches-filter-section {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  .matches-filter-innerr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    .match-filter {
+      color: #b6d433;
+      padding: 0 0 7px 0;
+    }
+    .match-filter.active {
+      border-bottom: 2px solid #b6d433;
+    }
+  }
+}

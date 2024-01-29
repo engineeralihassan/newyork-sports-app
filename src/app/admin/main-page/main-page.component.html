@@ -71,6 +71,20 @@
         </div>
       </div>
     </div>
+
+    <div class="matches-filter-section">
+      <div class="matches-filter-innerr">
+        <div class="match-filter" [class.active]="activeFilter === 'All Matches'"
+          (click)="setActiveFilter('All Matches')">All Matches</div>
+        <div class="match-filter" [class.active]="activeFilter === 'Completed'" (click)="setActiveFilter('Completed')">
+          Completed</div>
+
+      </div>
+    </div>
+
+
+
+
     <div class="model-loader-container" *ngIf="isSearching">
       <div class="loaderModel"></div>
     </div>
