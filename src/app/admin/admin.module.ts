@@ -6,7 +6,6 @@ import { AdminPageRoutingModule } from './admin-routing.module';
 import { AdminPage } from './admin.page';
 import { SharedModule } from '../Shared/shared.module';
 import { DatePipe } from '@angular/common';
-import { DetailsComponent } from './details/details.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SingleUserComponent } from './single-user/single-user.component';
 
@@ -18,12 +17,7 @@ import { SingleUserComponent } from './single-user/single-user.component';
     AdminPageRoutingModule,
     SharedModule,
   ],
-  declarations: [
-    AdminPage,
-    DetailsComponent,
-    MainPageComponent,
-    SingleUserComponent,
-  ],
+  declarations: [AdminPage, MainPageComponent, SingleUserComponent],
   providers: [DatePipe],
 })
 export class AdminPageModule {}

@@ -1,14 +1,6 @@
 <ion-content [fullscreen]="true">
-  <div class="loader-container" *ngIf="isLoading">
-    <div class="loading-spinner">
-    </div>
-
-  </div>
-  <div class="main-app-screen" *ngIf="!isLoading">
-    <div class="splash-screen-container" *ngIf="isLoading">
-      <img src="../../assets/Group 22968.png" alt="">
-    </div>
-    <div class="home-page-section-1" *ngIf="!isLoading">
+  <div class="main-app-screen">
+    <div class="home-page-section-1">
       <div class="inned-box">
         <h2>All Matches</h2>
         <div class="icon" (click)="toggleInput()">
@@ -22,6 +14,19 @@
           </div><input type="text" placeholder="Search here..." [(ngModel)]="searchText" (input)="updateSearch()">
         </div>
       </div>
+    </div>
+
+    <div class="matches-filter-section">
+      <div class="matches-filter-innerr">
+        <div class="match-filter" [class.active]="activeFilter === 'All Matches'"
+          (click)="setActiveFilter('All Matches')">All Matches</div>
+        <div class="match-filter" [class.active]="activeFilter === 'Completed'" (click)="setActiveFilter('Completed')">
+          Completed</div>
+
+      </div>
+    </div>
+    <div class="model-loader-container" *ngIf="isLoading">
+      <div class="loaderModel"></div>
     </div>
     <div class="all-matches-section-container" *ngIf="!isLoading">
       <div class="match-box" *ngFor="let match of matches">
@@ -62,7 +67,7 @@
       </div>
     </div>
 
-    <div class="norecords-section" *ngIf="!matches.length">
+    <div class="norecords-section" *ngIf="!matches.length && !isLoading">
       <div class="inner">
         <div class="icon">
           <img src="../../assets/undraw_Joyride_re_968t.png" alt="">
@@ -79,7 +84,7 @@
   <button class="btn second-btn-non" #myButton type="button" data-bs-toggle="modal"
     data-bs-target="#staticBackdrop-proceed">Send Email</button>
 </ion-content>
-<ion-footer *ngIf="!isLoading">
+<ion-footer>
   <ion-toolbar class="home-page-footer">
     <app-manu-tabs></app-manu-tabs>
   </ion-toolbar>

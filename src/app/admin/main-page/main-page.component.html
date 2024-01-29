@@ -1,46 +1,8 @@
-<ion-menu contentId="main-content" class="sidebar-main">
-  <div class="sidebar-section-1">
-    <div class="icon">
-      <ion-menu-toggle>
-        <ion-icon name="close-circle-outline"></ion-icon>
-      </ion-menu-toggle>
-    </div>
-  </div>
-
-  <div class="sidebar-section-2">
-    <img
-      src="../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png"
-      alt="">
-    <div class="text">
-      <h2>Admin</h2>
-      <p>admin123&#64;GMAIL.COM</p>
-    </div>
-  </div>
-  <div class="sidebar-section-3">
-    <ul class="links">
-      <li class="link">
-        <div class="icon">
-          <ion-icon name="settings-outline"></ion-icon>
-        </div>
-        <div class="text">Setting</div>
-      </li>
-      <li class="link">
-        <div class="icon">
-          <ion-icon name="log-out-outline"></ion-icon>
-        </div>
-        <div class="text" (click)="openModal()">Logout</div>
-      </li>
-    </ul>
-  </div>
-</ion-menu>
-
 <ion-content [fullscreen]="true" id="main-content">
   <div class="loader-container" *ngIf="isLoading">
     <div class="loading-spinner">
     </div>
-
   </div>
-
   <div class="main-app-screen" *ngIf="!isLoading">
     <div class="splash-screen-container" *ngIf="isLoading">
       <img src="../../../assets/Group 22968.png" alt="">
@@ -71,7 +33,6 @@
         </div>
       </div>
     </div>
-
     <div class="matches-filter-section">
       <div class="matches-filter-innerr">
         <div class="match-filter" [class.active]="activeFilter === 'All Matches'"
@@ -220,9 +181,6 @@
 
   <button class="btn second-btn-non" #myButton type="button" data-bs-toggle="modal"
     data-bs-target="#staticBackdrop-proceed">Send Email</button>
-  <button class="btn second-btn-non" #myButton2 type="button" data-bs-toggle="modal"
-    data-bs-target="#staticBackdrop">logout</button>
-
 </ion-content>
 <ion-footer *ngIf="!isLoading">
   <ion-toolbar class="home-page-footer">

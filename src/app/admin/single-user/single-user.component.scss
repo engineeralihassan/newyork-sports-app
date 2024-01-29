@@ -73,11 +73,10 @@
 
 .img {
   width: 100%;
-  overflow: hidden;
   img {
     width: 100% !important;
-    height: 310px !important;
-    border-radius: 20px;
+    height: auto !important;
+    border-radius: 20px !important;
     object-fit: cover;
   }
 }
@@ -102,5 +101,20 @@
     outline: none;
     padding: none;
     text-align: center;
+  }
+}
+
+.detail-colum p:nth-child(2) {
+  color: #71717a;
+}
+@media (min-width: 600px) {
+  .player-info-container {
+    width: 70%;
+    margin: auto;
+    .img {
+      max-height: 400px;
+      width: 50%;
+      margin: auto;
+    }
   }
 }

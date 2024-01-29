@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  @ViewChild('myButton2') myButton!: ElementRef;
   constructor() {}
+  navigate: any;
+  openModal() {
+    console.log('Hello Ali Clicked');
+    this.myButton.nativeElement.click();
+  }
 }

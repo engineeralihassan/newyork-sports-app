@@ -59,7 +59,6 @@ export class MainPageComponent {
   }
 
   fetchSingleUser(user: any) {
-    console.log('the user is ::', user);
     this.adminService.singleUser = user;
     this.closeModal();
     setTimeout(() => {
@@ -67,11 +66,9 @@ export class MainPageComponent {
     }, 1000);
   }
   openModal1(index: number, match: any) {
-    console.log('Match is ::', match);
     let newobj = { gameId: match.gameId };
     this.modelLoading = true;
     this.adminService.getCheckins(newobj).subscribe((data: any) => {
-      console.log('model data sjsss', data.game);
       if (data.status) {
         this.modelData = data.game;
       }
@@ -148,9 +145,6 @@ export class MainPageComponent {
         }
         if (data.games.length < 50) {
           this.isLoadMoreData = false;
-          console.log('progrma to vr gia33');
-        } else {
-          console.log('progrma to vr gia');
         }
       },
       (error) => {
@@ -160,10 +154,6 @@ export class MainPageComponent {
         (event.target as HTMLIonInfiniteScrollElement).complete();
       }
     );
-  }
-
-  openModal() {
-    this.myButton.nativeElement.click();
   }
   formateDateTime(time: any) {
     return this.datePipe.transform(time, 'EEE, MMM d, yyyy');
@@ -203,7 +193,6 @@ export class MainPageComponent {
     return formattedTime || '';
   }
   onButtonClick(obj: any): void {
-    console.log('The details button click');
     this.router.navigate(['admin/usersdetail']);
   }
 

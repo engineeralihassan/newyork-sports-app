@@ -20,6 +20,9 @@ export class HomePage {
   matchesRecordsData: any;
   showAlert = false;
   errorMesg = 'something went wrong try again';
+  isSearching = false;
+  activeFilter: string = 'All Matches';
+  progamState: any = '';
 
   constructor(
     private router: Router,
@@ -28,8 +31,11 @@ export class HomePage {
     private matchesService: MatchesService
   ) {}
   ngOnInit() {
+    this.fetchData();
+  }
+  fetchData() {
     this.isLoading = true;
-    this.authService.getGames().subscribe(
+    this.authService.getGames(this.progamState).subscribe(
       (data) => {
         if (data.status) {
           this.matchesRecordsData = data.programs;
@@ -45,6 +51,7 @@ export class HomePage {
       }
     );
   }
+
   formatTime(timestamp: string): string {
     const date = new Date(Number(timestamp));
     const formattedTime = this.datePipe.transform(date, 'ha');
@@ -72,6 +79,17 @@ export class HomePage {
         record.team1.toLowerCase().includes(searchText.toLowerCase()) ||
         record.team2.toLowerCase().includes(searchText.toLowerCase())
     );
+  }
+  setActiveFilter(filter: string) {
+    this.isSearching = true;
+    this.activeFilter = filter;
+    if (filter.includes('All')) {
+      this.progamState = '';
+      this.fetchData();
+    } else {
+      this.progamState = 'COMPLETED';
+      this.fetchData();
+    }
   }
   updateSearch(): void {
     if (!this.searchText) {

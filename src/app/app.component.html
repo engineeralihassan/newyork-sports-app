@@ -1,4 +1,41 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="content" class="sidebar-main">
+    <div class="sidebar-section-1">
+      <div class="icon">
+        <ion-menu-toggle>
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-menu-toggle>
+      </div>
+    </div>
+
+    <div class="sidebar-section-2">
+      <img
+        src="../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png"
+        alt="">
+      <div class="text">
+        <h2>Admin</h2>
+        <p>admin123&#64;GMAIL.COM</p>
+      </div>
+    </div>
+    <div class="sidebar-section-3">
+      <ul class="links">
+        <li class="link">
+          <div class="icon">
+            <ion-icon name="settings-outline"></ion-icon>
+          </div>
+          <div class="text">Setting</div>
+        </li>
+        <li class="link">
+          <div class="icon">
+            <ion-icon name="log-out-outline"></ion-icon>
+          </div>
+          <div class="text" (click)="openModal()">Logout</div>
+        </li>
+      </ul>
+    </div>
+  </ion-menu>
+  <button class="btn second-btn-non" #myButton2 type="button" data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop">logout</button>
+  <ion-router-outlet Id="content"></ion-router-outlet>
 </ion-app>
 <app-model-alert></app-model-alert>

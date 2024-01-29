@@ -16,33 +16,33 @@
         [src]="userData?.photo?url+'/'+userData?.photo:'../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png'"
         alt="">
     </div>
-
-  </div>
-</div>
-<div class="user-details-content-section" *ngIf="!loading">
-  <div class="detail-colum">
-    <p>User Name</p>
-    <p>{{userData?.username}}</p>
-  </div>
-  <div class="detail-colum">
-    <p>Email</p>
-    <p>{{userData?.email}}</p>
-  </div>
-  <div class="detail-colum">
-    <p>Date of join</p>
-    <p>{{transformDate(userData?.dateJoined
+    <div class="user-details-content-section" *ngIf="!loading">
+      <div class="detail-colum">
+        <p>User Name</p>
+        <p>{{userData?.username}}</p>
+      </div>
+      <div class="detail-colum">
+        <p>Email</p>
+        <p>{{userData?.email}}</p>
+      </div>
+      <div class="detail-colum">
+        <p>Date of join</p>
+        <p>{{transformDate(userData?.dateJoined
 )}}</p>
-  </div>
-  <div class="detail-colum">
-    <p>Phone</p>
-    <p>{{userData?.mobilePhone}}</p>
-  </div>
-  <div class="detail-colum">
-    <p>City</p>
-    <p>{{userData?.city}}</p>
-  </div>
+      </div>
+      <div class="detail-colum">
+        <p>Phone</p>
+        <p>{{userData?.mobilePhone}}</p>
+      </div>
+      <div class="detail-colum">
+        <p>City</p>
+        <p>{{userData?.city}}</p>
+      </div>
 
-</div>
-<div class="button">
-  <button routerLink="/admin">Back</button>
+    </div>
+    <div class="button">
+      <button routerLink="/admin">Back</button>
+    </div>
+
+  </div>
 </div>

@@ -25,11 +25,14 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 * {
-    font-family: 'Syn', sans-serif;
-  }
+  font-family: "Syn", sans-serif;
+}
 
-  .example-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.example-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ion-page {
+  z-index: 1 !important;
+}
