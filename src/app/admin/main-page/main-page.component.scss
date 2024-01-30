@@ -381,7 +381,7 @@ ion-menu {
 
 .block {
   width: 100%;
-  height: 500px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -560,6 +560,7 @@ ion-modal {
     .match-filter {
       color: #b6d433;
       padding: 0 0 7px 0;
+      cursor: pointer;
     }
     .match-filter.active {
       border-bottom: 2px solid #b6d433;
@@ -569,4 +570,10 @@ ion-modal {
 .manu-content-xxx {
   position: absolute;
   z-index: 105 !important;
+}
+.padding-space {
+  padding-bottom: 100px;
+}
+.table-row {
+  padding: 10px 20px;
 }

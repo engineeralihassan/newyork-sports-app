@@ -11,6 +11,7 @@ export class AdminService {
   loginAsAdmin = false;
   apiUrl = environment.admin;
   singleUser: any;
+  adminUser: any;
 
   constructor(private router: Router, private http: HttpClient) {}
   setLoginAsAdmin(login: any) {
@@ -37,5 +38,8 @@ export class AdminService {
   }
   getsingleUser(data: any) {
     return this.http.post(`${this.apiUrl}/getUserDetails`, data);
+  }
+  setAdmin(admin: any) {
+    this.adminUser = admin;
   }
 }

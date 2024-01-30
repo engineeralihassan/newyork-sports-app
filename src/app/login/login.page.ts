@@ -89,6 +89,7 @@ export class LoginPage implements OnInit {
         if (data.status) {
           localStorage.setItem('nasaAdminTocken', data.accessToken);
           console.log('The data as admin', data);
+          this.adminService.setAdmin(data);
           this.isError.isAdminWrong = false;
           this.isError.adminLoginSuccess = true;
           this.timerSubscription = timer(4000).subscribe(() => {

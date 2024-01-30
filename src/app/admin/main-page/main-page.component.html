@@ -42,10 +42,6 @@
 
       </div>
     </div>
-
-
-
-
     <div class="model-loader-container" *ngIf="isSearching">
       <div class="loaderModel"></div>
     </div>
@@ -95,8 +91,8 @@
       </ion-infinite-scroll>
     </div>
 
+    <div class="padding-space" *ngIf="!isLoadMoreData"></div>
 
-    <div class="padding-space"></div>
 
 
     <div class="norecords-section" *ngIf="!matches?.length && !isSearching">
