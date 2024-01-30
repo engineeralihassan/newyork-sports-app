@@ -38,6 +38,7 @@ export class AuthPage implements OnInit {
   }
   asAdmin() {
     this.adminService.setLoginAsAdmin(true);
+    this.authService.setLoginMethod('username');
     this.router.navigate(['login']);
   }
   setloginMethod(method: any) {
