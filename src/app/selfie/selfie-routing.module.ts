@@ -14,7 +14,6 @@ const routes: Routes = [
       { path: 'screen1', component: SelfieScreen1Component },
       { path: 'screen2', component: SelfieScreen2Component },
       { path: 'screen3', component: SelfieScreen3Component },
-
       { path: '', redirectTo: 'screen1', pathMatch: 'full' },
     ],
   },
