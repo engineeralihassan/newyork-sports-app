@@ -92,7 +92,7 @@ export class LoginPage implements OnInit {
           this.adminService.setAdmin(data);
           this.isError.isAdminWrong = false;
           this.isError.adminLoginSuccess = true;
-          this.timerSubscription = timer(4000).subscribe(() => {
+          this.timerSubscription = timer(1000).subscribe(() => {
             this.isError.adminLoginSuccess = false;
             this.router.navigate(['admin']);
           });

@@ -84,7 +84,7 @@
         </div>
       </div>
     </div>
-    <div class="infinitloader" *ngIf="isLoadMoreData">
+    <div class="infinitloader" *ngIf="isLoadMoreData && matches.length">
       <ion-infinite-scroll (ionInfinite)="loadMoreData($event)">
         <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles">
         </ion-infinite-scroll-content>
@@ -105,9 +105,9 @@
       </div>
     </div>
 
-    <ion-modal [isOpen]="isOpenModal" (closed)="closeModal()" [initialBreakpoint]="1" [breakpoints]="[0, 1]"
-      (ionBackdropTap)="backdropTaped()">
-      <ng-template>
+    <ion-modal class="model-bottome-from" [isOpen]="isOpenModal" (closed)="closeModal()" [initialBreakpoint]="1"
+      [breakpoints]="[0, 1]" (ionBackdropTap)="backdropTaped()">
+      <ng-template class="hello-form">
         <div class="block">
           <div class="model-loader-container" *ngIf="modelLoading">
             <div class="loaderModel"></div>
