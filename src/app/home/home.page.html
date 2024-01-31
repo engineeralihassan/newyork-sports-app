@@ -15,8 +15,14 @@
         </div>
       </div>
     </div>
+    <div class="error-content-container" *ngIf="!isAuthenticated ">
+      <img src="../../assets/undraw_snap_the_moment_re_88cu.png" alt="">
+      <h2>Login session expire</h2>
+      <p>Your login session expired, Please login again</p>
+      <button routerLink="/auth">Login</button>
+    </div>
 
-    <div class="matches-filter-section">
+    <div class="matches-filter-section" *ngIf="isAuthenticated ">
       <div class="matches-filter-innerr">
         <div class="match-filter" [class.active]="activeFilter === 'All Matches'"
           (click)="setActiveFilter('All Matches')">All Matches</div>
@@ -28,7 +34,7 @@
     <div class="model-loader-container" *ngIf="isLoading">
       <div class="loaderModel"></div>
     </div>
-    <div class="all-matches-section-container" *ngIf="!isLoading">
+    <div class="all-matches-section-container" *ngIf="!isLoading && isAuthenticated">
       <div class="match-box" *ngFor="let match of matches">
         <div class="match-box-header">
           <div class="text">
@@ -67,7 +73,7 @@
       </div>
     </div>
 
-    <div class="norecords-section" *ngIf="!matches.length && !isLoading">
+    <div class="norecords-section" *ngIf="!matches.length && !isLoading && isAuthenticated">
       <div class="inner">
         <div class="icon">
           <img src="../../assets/undraw_Joyride_re_968t.png" alt="">

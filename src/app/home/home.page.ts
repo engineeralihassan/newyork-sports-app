@@ -23,6 +23,7 @@ export class HomePage {
   isSearching = false;
   activeFilter: string = 'All Matches';
   progamState: any = '';
+  isAuthenticated = true;
 
   constructor(
     private router: Router,
@@ -45,9 +46,11 @@ export class HomePage {
       },
       (error) => {
         this.isLoading = false;
-        this.showAndHideAlert();
-        this.errorMesg = 'Please Login first your tocken is expired ';
-        this.router.navigate(['auth']);
+
+        if (error.status === 401) {
+          this.isAuthenticated = false;
+        }
+        console.log(error);
       }
     );
   }

@@ -24,7 +24,7 @@ export class ErrorinterceptorService {
     return next.handle(request).pipe(
       catchError((error: any) => {
         if (error instanceof HttpErrorResponse) {
-          if (error) {
+          if (error.status !== 401) {
             this.router.navigate(['/error']);
           }
         }
