@@ -1,13 +1,17 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>error-page</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">error-page</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <div class="error-content-container">
+    <img src="../../assets/undraw_snap_the_moment_re_88cu.png" alt="">
+    <h2>Something went wrong</h2>
+    <p>Please check your internet connection or referesh the page</p>
+    <button [routerLink]="route">Go to {{page}}</button>
+
+  </div>
+
+
 </ion-content>
+<ion-footer>
+  <ion-toolbar class="home-page-footer">
+    <app-manu-tabs></app-manu-tabs>
+  </ion-toolbar>
+</ion-footer>

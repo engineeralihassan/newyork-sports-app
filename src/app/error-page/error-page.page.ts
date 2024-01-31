@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-error-page',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./error-page.page.scss'],
 })
 export class ErrorPagePage implements OnInit {
-
-  constructor() { }
+  page: any;
+  route: any;
+  constructor(private adminService: AdminService) {}
 
   ngOnInit() {
+    this.page = this.adminService.loginAsAdmin ? 'Admin dashboard' : 'Home';
+    this.route = this.adminService.loginAsAdmin ? '/admin' : '/home';
   }
-
 }

@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ErrorPagePageRoutingModule } from './error-page-routing.module';
 
 import { ErrorPagePage } from './error-page.page';
+import { SharedModule } from '../Shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ErrorPagePageRoutingModule
+    ErrorPagePageRoutingModule,
+    SharedModule,
   ],
-  declarations: [ErrorPagePage]
+  declarations: [ErrorPagePage],
 })
 export class ErrorPagePageModule {}
