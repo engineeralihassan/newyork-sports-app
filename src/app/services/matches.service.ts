@@ -22,6 +22,7 @@ export class MatchesService {
   private myObject: any;
   private objectSubject = new BehaviorSubject<any>(null);
   private photoSubject = new BehaviorSubject<any>(null);
+  private locationSubject = new BehaviorSubject<any>(null);
   constructor(private router: Router, private http: HttpClient) {}
   checkinFail = false;
   apiUrl = environment.apiUrl;
@@ -62,6 +63,7 @@ export class MatchesService {
   };
   printCurrentPosition = async () => {
     const coordinates = await Geolocation.getCurrentPosition();
+    this.setLocationStatus(coordinates);
 
     console.log('Current position:', coordinates);
   };
@@ -83,20 +85,26 @@ export class MatchesService {
     const permissionStatus = await Geolocation.checkPermissions();
 
     if (permissionStatus.location === 'granted') {
-      // Location permission already granted, proceed with location functionality
       console.log('Location permission granted');
+      this.printCurrentPosition();
     } else {
-      // Location permission not granted, request it
       const requestResult = await Geolocation.requestPermissions();
 
       if (requestResult.location === 'granted') {
         console.log('Location permission granted');
-        // Proceed with location functionality
+        this.printCurrentPosition();
       } else {
         console.log('Location permission denied');
-        // Handle denial of location permission gracefully
       }
     }
+  }
+  getLocationStatus() {
+    return this.locationSubject.asObservable();
+  }
+
+  setLocationStatus(status: any) {
+    console.log('The location is settle ');
+    this.locationSubject.next(status);
   }
 }
 export interface UserPhoto {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription, timer } from 'rxjs';
 import { Location } from '@angular/common';
 import { AdminService } from '../services/admin.service';
+import { MatchesService } from '../services/matches.service';
 
 @Component({
   selector: 'app-auth',
@@ -17,10 +18,12 @@ export class AuthPage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private loc: Location,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private service: MatchesService
   ) {}
 
   ngOnInit(): void {
+    this.service.checkAndRequestLocationPermission();
     this.isLoading = true;
     if (this.authService.isLoggedin) {
       this.timerSubscription = timer(2000).subscribe(() => {
