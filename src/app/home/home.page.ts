@@ -94,6 +94,9 @@ export class HomePage {
       this.fetchData();
     }
   }
+  formateDateTime(time: any) {
+    return this.datePipe.transform(time, 'EEE, MMM d, yyyy');
+  }
   updateSearch(): void {
     if (!this.searchText) {
       this.matches = this.matchesRecordsData;
