@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'new-york-app-01',
-  appName: 'newyork-sports-app',
+  appName: 'NYSA',
   webDir: 'www',
   server: {
     androidScheme: 'http',
