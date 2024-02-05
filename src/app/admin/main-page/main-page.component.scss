@@ -382,13 +382,17 @@ ion-menu {
 
 .block {
   width: auto;
-  max-height: 500px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  padding: 20px 10px 20px 10px;
+  padding: 20px;
   overflow-y: scroll;
+}
+.block::-webkit-scrollbar {
+  width: 0;
+  display: none;
 }
 
 ion-modal {
@@ -433,6 +437,9 @@ ion-modal {
           flex-direction: column;
           flex-basis: 45%;
           font-size: 17px;
+          p {
+            font-size: 15px;
+          }
           .h3 {
             color: #d6d6d6;
             font-weight: 300;

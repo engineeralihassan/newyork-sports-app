@@ -1,203 +1,189 @@
-
-
- .screen-three-content{
-    width: 100%;
-    min-height: 80vh;
-    .screen-three-inner{
-     margin-top: 100px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     flex-direction: column;
-     
-    }
- }
-
- .screen-three-content{
-
- 
-h2{
-    color: #B6D433;
-    font-weight: bold;
-    font-size: 50px !important;
-}
- .text{
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #B6D433;
+.screen-three-content {
+  width: 100%;
+  min-height: 80vh;
+  .screen-three-inner {
     margin-top: 20px;
-    font-size: 20px;
-    p{
-      color: black;
-      font-size: 14px;
-      font-weight: bold;
-
-    }span{
-      color: #B1B1B4;
-      margin: 10px;
-      margin-top: -10px;
-    }
-}
-
-.location-tab{
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    .box-1{
-        margin-top: 30px;
+    padding: 15px;
+  }
+}
+
+.screen-three-content {
+  h2 {
+    color: #b6d433;
+    font-weight: bold;
+    font-size: 50px !important;
+  }
+  .text {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b6d433;
+    margin-top: 20px;
+    font-size: 20px;
+    p {
+      color: black;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    span {
+      color: #b1b1b4;
+      margin: 10px;
+      margin-top: -10px;
+    }
+  }
+
+  .location-tab {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    .box-1 {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 25px;
+
+      ion-icon {
+        color: #b6d433;
+        margin-top: 4px;
+      }
+    }
+    .box-2 {
+      margin-top: 30px;
+      margin-top: 10px;
+      font-size: 25px;
+      .circle {
+        background-color: green;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        font-size: 25px;
-        
-        ion-icon {
-             color: #B6D433;
-             margin-top: 4px;
-        }
-
+        color: #0000;
+        margin-top: 4px;
+        font-size: 35px;
+        font-weight: bold;
+      }
     }
-    .box-2{
-        margin-top: 30px;
-        margin-top: 10px;
-        font-size: 25px;
-        .circle{
-            background-color: green;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #0000;
-            margin-top: 4px;
-            font-size: 35px;
-            font-weight: bold;
-        }
-    }
-
+  }
 }
 
- }
+.profile-photo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
 
- .profile-photo{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    
-    img{
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-    }
- }
-
-
-
-
-
-.img{
-    margin-top: 5px;
-    background-color: #08C552;
-    color: #FFFFFF;
-    width: 60px;
-    height: 60px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
+  img {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 }
 
-.img-user{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  img{
+.img {
+  margin-top: 5px;
+  background-color: #08c552;
+  color: #ffffff;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+}
+
+.img-user {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
   }
-
-
-
 }
-.logout-btn{
-    width: 100%;
+.logout-btn {
+  width: 100%;
 }
 
+.logout-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 5% !important;
 
-    .logout-btn{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        bottom: 5% !important;
-
-
-        button{
-            background-color: #F3F3F3;
-            border-radius: 10px;
-            padding: 18px 16px 18px 16px;
-            border: none;
-            outline: none;
-            width: 80%;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 50px;
-            p{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 18px;
-            }
-        
-
-            
-        }
-        .btn-2{
-            background-color: #B6D433;
-        }
-
-    }
-
-    .loader {
-        width: 50px;
-        padding: 8px;
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background: #fff;
-        --_m: 
-          conic-gradient(#0000 10%,#000),
-          linear-gradient(#000 0 0) content-box;
-        -webkit-mask: var(--_m);
-                mask: var(--_m);
-        -webkit-mask-composite: source-out;
-                mask-composite: subtract;
-        animation: l3 1s infinite linear;
-      }
-      @keyframes l3 {to{transform: rotate(1turn)}}
-    
-  @media(min-width:600px){
-    .logout-btn{
-        margin-top: 20px;
-    position: relative;
-    margin-bottom: 20px;
-    }
-    button{
-        width: 40% !important;
-
+  button {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 18px 16px 18px 16px;
+    border: none;
+    outline: none;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 18px;
     }
   }
+  .btn-2 {
+    background-color: #b6d433;
+  }
+}
 
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #fff;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (min-width: 600px) {
+  .logout-btn {
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  button {
+    width: 40% !important;
+  }
+}
+button {
+  border: none;
+  outline: none;
+}
