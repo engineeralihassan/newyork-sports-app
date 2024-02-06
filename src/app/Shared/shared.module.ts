@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { ErrorAlertComponent } from './error-alert/error-alert.component';
 import { ManuTabsComponent } from './manu-tabs/manu-tabs.component';
@@ -14,6 +14,8 @@ import { ModelAlertComponent } from './model-alert/model-alert.component';
     ErrorAlertComponent,
     ManuTabsComponent,
     ModelAlertComponent,
+    DatePipe,
   ],
+  providers: [DatePipe],
 })
 export class SharedModule {}

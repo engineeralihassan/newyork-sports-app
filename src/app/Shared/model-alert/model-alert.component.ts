@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatchesService } from '../../services/matches.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-model-alert',
@@ -10,7 +11,11 @@ import { MatchesService } from '../../services/matches.service';
 export class ModelAlertComponent implements OnInit {
   checkInData: any;
   photo: any;
-  constructor(private router: Router, private dataService: MatchesService) {}
+  constructor(
+    private router: Router,
+    private dataService: MatchesService,
+    private datePipe: DatePipe
+  ) {}
 
   ngOnInit() {
     this.getObject();
@@ -70,5 +75,10 @@ export class ModelAlertComponent implements OnInit {
     this.dataService.ProceedMatch(data).subscribe((data) => {
       console.log('the data is  : hasle', data);
     });
+  }
+
+  formatDate(dateString: string): any {
+    const apiDate = new Date(dateString);
+    return this.datePipe.transform(apiDate, 'MM/dd/yyyy h:mm:ss a');
   }
 }

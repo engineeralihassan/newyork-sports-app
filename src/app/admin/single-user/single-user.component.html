@@ -11,9 +11,9 @@
     <div class="loaderModel"></div>
   </div>
   <div class="player-info-container" *ngIf="!loading">
-    <div class="img">
+    <div class="img" *ngIf="userData?.photo">
       <img
-        [src]="userData?.photo?url+'/'+userData?.photo:'../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png'"
+        [src]="userData?.photo? url+'/'+userData?.photo:'../../../assets/beautiful-woman-red-outfit-holds-glass-tea-takes-selfie-background-sakura-portrait-brunette-girl-hat-smilimg-posing-with-coffee-cup 2.png'"
         alt="">
     </div>
     <div class="user-details-content-section" *ngIf="!loading">

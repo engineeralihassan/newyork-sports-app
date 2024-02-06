@@ -26,7 +26,11 @@
     <div class="modal-content">
       <div class="modal-body">
         <div class="line"></div>
-        <h2>Check In</h2>
+        <h2 class="mod-header">Check In</h2>
+        <div class="box-2" *ngIf="checkInData?.LastCheckIn">
+          <ion-icon name="time-outline"></ion-icon>
+          <p>Last CheckedIn: <span>{{formatDate(checkInData?.LastCheckIn)}}</span></p>
+        </div>
         <div class="text">
           <p>{{ checkInData?.team1}}</p> <span> vs </span>
           <p>{{checkInData?.team2}}</p>

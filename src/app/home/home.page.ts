@@ -33,6 +33,7 @@ export class HomePage {
   ) {}
   ngOnInit() {
     this.fetchData();
+    this.matchesService.checkAndRequestLocationPermission();
   }
   fetchData() {
     this.isLoading = true;
@@ -103,6 +104,11 @@ export class HomePage {
     } else {
       this.matches = this.filterRecords(this.matches, this.searchText);
     }
+  }
+
+  formatDate(dateString: string): any {
+    const apiDate = new Date(dateString);
+    return this.datePipe.transform(apiDate, 'MM/dd/yyyy h:mm:ss a');
   }
 
   ngOnDestroy(): void {

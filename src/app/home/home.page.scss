@@ -110,19 +110,35 @@
       .text {
         flex-basis: 68%;
         display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        color: #b6d433;
-        overflow: hidden;
-        p {
-          color: black;
-          font-size: 14px;
-          font-weight: bold;
+        flex-direction: column;
+        .box-1 {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: #b6d433;
+          overflow: hidden;
+
+          p {
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+          }
+          span {
+            color: #b1b1b4;
+            margin: 10px;
+            margin-top: -10px;
+          }
         }
-        span {
-          color: #b1b1b4;
-          margin: 10px;
-          margin-top: -10px;
+        .box-2 {
+          p {
+            font-size: 16px;
+            font-weight: bold;
+            font-weight: normal;
+            color: #b6d433;
+          }
+          span {
+            color: black;
+          }
         }
       }
 

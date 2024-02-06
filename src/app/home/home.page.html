@@ -38,8 +38,14 @@
       <div class="match-box" *ngFor="let match of matches">
         <div class="match-box-header">
           <div class="text">
-            <p>{{match?.team1}}</p> <span> vs </span>
-            <p> {{match?.team2}}</p>
+            <div class="box-1">
+              <p>{{match?.team1}}</p> <span> vs </span>
+              <p> {{match?.team2}}</p>
+            </div>
+            <div class="box-2" *ngIf="match?.LastCheckIn">
+              <p>Last CheckedIn: <span>{{formatDate(match?.LastCheckIn)}}</span></p>
+            </div>
+
           </div>
           <div class="btns"><button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop-selfie"
               class="checkin-btn" (click)="onButtonClick(match)">Check in</button></div>
