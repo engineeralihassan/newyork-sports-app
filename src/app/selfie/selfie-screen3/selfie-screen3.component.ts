@@ -74,7 +74,7 @@ export class SelfieScreen3Component implements OnInit {
     } else {
       this.isLoading = false;
       this.showAlert = true;
-      this.errorMesg = 'check your location';
+      this.errorMesg = 'Check your location';
       this.showAndHideAlert();
       this.service.checkAndRequestLocationPermission();
     }

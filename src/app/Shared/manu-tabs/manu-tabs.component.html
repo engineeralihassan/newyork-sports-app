@@ -1,20 +1,16 @@
-<ion-tabs class="tabs-main-container">
-  <ion-tab-bar slot="bottom" class="tabbar">
-    <ion-tab-button [class.active]="activeTab === 'home'" (click)="changeTab('home')">
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
       Home
     </ion-tab-button>
-    <ion-tab-button [class.active]="activeTab === 'calendar'" (click)="changeTab('calendar')">
-      <ion-icon name="calendar-clear-outline"></ion-icon>
+    <ion-tab-button tab="radio">
+      <ion-icon name="radio"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button [class.active]="activeTab === 'timer'" type="button" (click)="changeTab('timer')">
-      <ion-icon name="timer-outline"></ion-icon>
+    <ion-tab-button tab="library">
+      <ion-icon name="library"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button type="button" [class.active]="activeTab === 'settings'" (click)="changeTab('settings')">
-      <ion-icon name="settings-outline"></ion-icon>
-    </ion-tab-button>
-    <ion-tab-button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-      [class.active]="activeTab === 'logout'" (click)="changeTab('logout')">
-      <ion-icon name="log-out-outline"></ion-icon>
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

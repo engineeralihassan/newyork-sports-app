@@ -104,14 +104,16 @@
       align-items: center;
       border-bottom: 0.7px solid #b6d43338;
       padding-bottom: 10px;
+      gap: 6px;
 
       width: 100%;
       .text {
-        flex-basis: 70%;
+        flex-basis: 68%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         color: #b6d433;
+        overflow: hidden;
         p {
           color: black;
           font-size: 14px;
@@ -125,7 +127,7 @@
       }
 
       .btns {
-        flex-basis: 25%;
+        flex-basis: 27%;
         display: flex;
         justify-content: flex-end;
         align-items: center;

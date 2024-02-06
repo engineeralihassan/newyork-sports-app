@@ -116,6 +116,7 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    object-fit: cover;
   }
 }
 .logout-btn {
@@ -151,6 +152,7 @@
   }
   .btn-2 {
     background-color: #b6d433;
+    color: black;
   }
 }
 
@@ -174,6 +176,12 @@
 }
 
 @media (min-width: 600px) {
+  .location-tab {
+    width: 35% !important;
+    margin: auto;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
   .logout-btn {
     margin-top: 20px;
     position: relative;
@@ -183,7 +191,7 @@
     width: 40% !important;
   }
 }
-button {
-  border: none;
-  outline: none;
+button:focus {
+  outline: none !important;
+  border: none !important;
 }
