@@ -1,25 +1,13 @@
-.tabs-main-container {
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  height: 50px;
-  overflow: hidden;
-}
-
-ion-tab-bar {
-  padding: 10px 10px;
-  background-color: #f3f3f3;
-  color: black;
-  max-width: 100%;
-}
-ion-tab-button {
-  background-color: #f3f3f3;
-  color: black;
-}
-ion-tab-button:hover {
-  color: #b6d433 !important;
-}
 ion-tab-button.active {
   color: #b6d433;
   font-size: 20px;
+}
+
+ion-tab-bar {
+  ion-tab-button:nth-child(1) {
+    font-size: 20px;
+  }
+  ion-tab-button:hover {
+    color: #b6d433 !important;
+  }
 }
