@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { SharedModule } from '../Shared/shared.module';
+import { LocalDateTimePipe } from '../Shared/local-date-time.pipe';
 
 @NgModule({
   imports: [

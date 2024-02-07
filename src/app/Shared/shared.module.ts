@@ -7,7 +7,12 @@ import { ModelAlertComponent } from './model-alert/model-alert.component';
 import { LocalDateTimePipe } from './local-date-time.pipe';
 
 @NgModule({
-  declarations: [ErrorAlertComponent, ManuTabsComponent, ModelAlertComponent, LocalDateTimePipe],
+  declarations: [
+    ErrorAlertComponent,
+    ManuTabsComponent,
+    ModelAlertComponent,
+    LocalDateTimePipe,
+  ],
   imports: [CommonModule, IonicModule],
   exports: [
     CommonModule,
@@ -16,6 +21,7 @@ import { LocalDateTimePipe } from './local-date-time.pipe';
     ManuTabsComponent,
     ModelAlertComponent,
     DatePipe,
+    LocalDateTimePipe,
   ],
   providers: [DatePipe],
 })
