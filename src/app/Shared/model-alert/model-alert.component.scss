@@ -49,6 +49,15 @@
       width: 150px;
       border: none;
       outline: none;
+      font-size: 17px;
+      font-weight: 600;
+      ion-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 40px;
+        font-family: "Poppins";
+        color: black;
+      }
     }
     .btn-2 {
       background-color: #b6d433;
@@ -88,7 +97,8 @@
 .selfie-modal-dialog .modal-body {
   h2 {
     color: #b6d433;
-    font-weight: normal;
+    font-weight: bold;
+    margin-top: -10px;
   }
   .text {
     flex-basis: 100%;
@@ -122,8 +132,9 @@
       margin-top: 10px;
       .circle {
         background-color: green;
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
+        padding: 3px;
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -214,4 +225,26 @@
 .mod-header {
   font-size: 30px;
   font-weight: bold;
+}
+
+.last-checj {
+  color: #b6d433 !important;
+  margin-left: -5px;
+  font-weight: 13px !important;
+  font-weight: 500 !important;
+  span {
+    color: black;
+    margin-left: 5px;
+    font-size: 13px !important;
+  }
+  ion-icon {
+    margin-top: 20px;
+  }
+}
+
+.c2 {
+  ion-icon {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }

@@ -64,8 +64,9 @@
             <div class="forget-password" routerLink="/verification">Forget Password</div>
           </div>
         </div>
-        <p class="error-message" *ngIf="isError.isPassWrong">Wrong password please try again</p>
-        <p class="error-message" *ngIf="isError.isAdminWrong">Wrong Credentials please correct and try again</p>
+        <p class="error-message mtop" *ngIf="isError.isPassWrong">Wrong password please try again</p>
+        <p class="error-messagemt-2 mtop" *ngIf="isError.isAdminWrong">Wrong Credentials please correct and try again
+        </p>
       </form>
 
 

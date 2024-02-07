@@ -29,7 +29,7 @@
         <h2 class="mod-header">Check In</h2>
         <div class="box-2" *ngIf="checkInData?.LastCheckIn">
           <ion-icon name="time-outline"></ion-icon>
-          <p>Last CheckedIn: <span>{{checkInData?.LastCheckIn | localDateTime}}</span></p>
+          <p class="last-checj">Last CheckedIn: <span>{{checkInData?.LastCheckIn | localDateTime}}</span></p>
         </div>
         <div class="text">
           <p>{{ checkInData?.team1}}</p> <span> vs </span>
@@ -38,11 +38,14 @@
         <div class="location-tab">
 
           <div class="box-1">
-            <ion-icon name="location-outline"></ion-icon>
+            <div class="circle">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
             <div class="icon">{{checkInData?.locationName}}</div>
           </div>
           <div class="box-1 box-2">
-            <div class="circle">
+            <div class="circle c2">
               <ion-icon name="checkmark-outline"></ion-icon>
             </div>
             <div class="icon">you are on permissions</div>
@@ -50,7 +53,7 @@
         </div>
         <div class="logout-btn">
           <button class="btn btn-2" data-bs-dismiss="modal" (click)="addPhotoToGallery()">
-            <ion-icon name="camera-outline"></ion-icon> Take a selfie
+            <ion-icon name="camera-outline"></ion-icon> Take a Selfie
           </button>
         </div>
       </div>

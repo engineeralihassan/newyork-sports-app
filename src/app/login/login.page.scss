@@ -78,6 +78,7 @@
           gap: 10px;
           font-family: "Franklin Gothic", sans-serif;
           font-size: 16px;
+
           .icon {
             color: #000000;
             margin-bottom: 7px;
@@ -122,8 +123,9 @@
       display: flex !important;
       justify-content: center !important;
       align-items: center !important;
-      font-size: 16px;
+      font-size: 18px;
       padding: 10px 20px;
+      font-weight: 500;
       p {
         width: 100%;
         height: 100%;
@@ -133,8 +135,8 @@
         margin-top: 15px;
       }
       .icon {
-        margin-left: 10px;
-        font-size: 20px;
+        margin-left: 5px;
+        font-size: 24px;
       }
     }
   }
@@ -197,28 +199,37 @@ button:disabled {
 .errorBorder {
   border-bottom: 1px solid red !important;
 }
+.mtop {
+  margin-top: 10px;
+}
 .loader {
-  width: 50px;
-  padding: 8px;
+  width: 15px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: #fff;
-  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
-  -webkit-mask: var(--_m);
-  mask: var(--_m);
-  -webkit-mask-composite: source-out;
-  mask-composite: subtract;
-  animation: l3 1s infinite linear;
+  animation: l5 1s infinite linear alternate;
 }
-@keyframes l3 {
-  to {
-    transform: rotate(1turn);
+@keyframes l5 {
+  0% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #000;
+  }
+  33% {
+    box-shadow: 20px 0 #000, -20px 0 #0002;
+    background: #0002;
+  }
+  66% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #0002;
+  }
+  100% {
+    box-shadow: 20px 0 #0002, -20px 0 #000;
+    background: #000;
   }
 }
 
 .error-message {
   color: red;
-  margin: 10px;
+  margin-top: 10px;
 }
 .forget-password {
   width: 100%;
