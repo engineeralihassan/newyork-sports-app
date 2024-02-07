@@ -91,6 +91,7 @@ export class MainPageComponent {
     this.activeIndex = -1;
   }
   setActiveFilter(filter: string) {
+    this.isLoadMoreData = true;
     this.isSearching = true;
     this.page = 1;
     this.activeFilter = filter;
