@@ -43,7 +43,7 @@
               <p> {{match?.team2}}</p>
             </div>
             <div class="box-2" *ngIf="match?.LastCheckIn">
-              <p>Last CheckedIn: <span>{{formatDate(match?.LastCheckIn)}}</span></p>
+              <p>Last CheckedIn: <span>{{match?.LastCheckIn|localDateTime}}</span></p>
             </div>
 
           </div>
