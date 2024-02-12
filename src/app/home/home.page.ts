@@ -37,8 +37,6 @@ export class HomePage {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        console.log('The event is called again');
-
         if (event.url === '/home' || event.urlAfterRedirects === '/home') {
           this.ngOnInit();
         }
