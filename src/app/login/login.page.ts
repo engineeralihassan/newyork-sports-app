@@ -116,6 +116,7 @@ export class LoginPage implements OnInit {
           this.isError.isUser = false;
         } else if (!data.status && data?.otp) {
           this.authService.otpCode = data.otp;
+          this.authService.isPasswordNotSet = true;
           this.router.navigate(['verification/otp-verification']);
         } else {
           this.isLoading = false;

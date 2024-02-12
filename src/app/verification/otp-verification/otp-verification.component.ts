@@ -2,26 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription, timer } from 'rxjs';
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-otp-verification',
   templateUrl: './otp-verification.component.html',
   styleUrls: ['./otp-verification.component.scss'],
 })
-export class OtpVerificationComponent  implements OnInit {
+export class OtpVerificationComponent implements OnInit {
   private timerSubscription: Subscription | undefined;
-  otp: any[] = [null, null, null, null,null,null];
+  otp: any[] = [null, null, null, null, null, null];
   inputCount = 0;
   finalInput = '';
   showSubmitButton = false;
-  otpcode!:any;
-  isOtpCorrect=false;
-  isOtpError=false;
-  constructor(private router:Router, private authService:AuthService){}
+  otpcode!: any;
+  isOtpCorrect = false;
+  isOtpError = false;
+  isunsetPassword: any;
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private location: Location
+  ) {}
 
   ngOnInit(): void {
-  this.otpcode=this.authService.otpCode;
-  console.log("The code is::",this.otpcode)
+    this.isunsetPassword = this.authService.isPasswordNotSet;
+    this.otpcode = this.authService.otpCode;
+    console.log('The code is::', this.otpcode);
     this.startInput();
+  }
+  goBack() {
+    this.location.back();
   }
 
   startInput(): void {
@@ -44,19 +55,23 @@ export class OtpVerificationComponent  implements OnInit {
       this.disableInput(index);
       if (this.inputCount < 5) {
         this.enableInput(index + 1);
-      }else{
+      } else {
         this.authService.logIn(true);
-        if(this.otp.length>4){
-          let optvalue=this.otp.join('');
-          let data={ username:`${this.authService.user.username}`,otp:`${optvalue}`}
+        if (this.otp.length > 4) {
+          let optvalue = this.otp.join('');
+          let data = {
+            username: `${this.authService?.user?.username}`,
+            otp: `${optvalue}`,
+          };
           this.verifyOtpRequest(data);
-          
         }
-    
       }
       this.inputCount += 1;
     } else if (value.length == 0 && event.key == 'Backspace') {
-      this.finalInput = this.finalInput.substring(0, this.finalInput.length - 1);
+      this.finalInput = this.finalInput.substring(
+        0,
+        this.finalInput.length - 1
+      );
       this.inputCount = Math.max(0, this.inputCount - 1);
       this.disableInput(index);
       if (index > 0) {
@@ -78,27 +93,23 @@ export class OtpVerificationComponent  implements OnInit {
     }
   }
 
-  verifyOtpRequest(otp:any){
-   this.authService.verifyOtp(otp).subscribe((data)=>{
-    if(data.status){
-      this.isOtpError=false;
-      this.isOtpCorrect=true;
-      this.timerSubscription = timer(3000).subscribe(() => {
+  verifyOtpRequest(otp: any) {
+    this.authService.verifyOtp(otp).subscribe((data) => {
+      if (data.status) {
+        this.isOtpError = false;
+        this.isOtpCorrect = true;
+        this.timerSubscription = timer(3000).subscribe(() => {
           this.router.navigate(['verification/reset-password']);
-      });
-    }else{
-      this.isOtpError=true;
-      this.startInput();
-    }
-   })
+        });
+      } else {
+        this.isOtpError = true;
+        this.startInput();
+      }
+    });
   }
   ngOnDestroy(): void {
     if (this.timerSubscription) {
       this.timerSubscription.unsubscribe();
     }
   }
-
- 
-  
-
 }

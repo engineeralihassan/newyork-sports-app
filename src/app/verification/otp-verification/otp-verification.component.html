@@ -1,18 +1,22 @@
 <div class="login-page-main-conatiner">
-  <div class="section-0">
+  <div class="section-0" (click)="goBack()">
     <img src="../../assets/Group 23.png" alt="">
   </div>
   <div class="section-1">
     <img src="../../assets/Group 22968.png" alt="">
   </div>
   <div class="alert alert-success d-flex align-items-center opt-succees-alert" role="alert" *ngIf="isOtpCorrect">
-  <div class="icon"><ion-icon name="checkmark-circle-outline"></ion-icon></div>
+    <div class="icon">
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+    </div>
     <div>
       Your Otp verified successfully
     </div>
   </div>
   <div class="alert alert-danger d-flex align-items-center error-otp-alert" role="alert" *ngIf="isOtpError">
-    <div class="icon"><ion-icon name="alert-circle-outline"></ion-icon></div>
+    <div class="icon">
+      <ion-icon name="alert-circle-outline"></ion-icon>
+    </div>
     <div>
       wrong otp code please enter correct code.
     </div>
@@ -20,27 +24,35 @@
 
 
   <div class="section-2">
-    <h1>Register</h1>
-    <p>We have sent an email to your email account with a verification code!</p>
+    <h1>{{isunsetPassword? 'Add New Password' :'Reset Password'}}</h1>
+    <p>
+      {{isunsetPassword? 'Your password is not set yet. We send you an email with OTP. Please enter your code here to add your new password!' : 'We have sent an email to your email account with a verification code. Please enter this code to reset your Password'}}
+    </p>
   </div>
   <div class="section-3">
     <div class="code-send-options">
 
       <div class="send-option">
         <div class="inputfield">
-          <input   id="otp-input-0" placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[0]" [disabled]="isInputDisabled(0)"  placeholder="-" (input)="handleInput(0, $event)" />
-          <input  id="otp-input-1"  placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[1]" [disabled]="isInputDisabled(1)"  placeholder="-" (input)="handleInput(1, $event)" />
-          <input  id="otp-input-2"  placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[2]" [disabled]="isInputDisabled(2)"  placeholder="-" (input)="handleInput(2, $event)" />
-          <input type="number" id="otp-input-3"  placeholder="-" maxlength="1" class="input" [(ngModel)]="otp[3]" [disabled]="isInputDisabled(3)" (input)="handleInput(3, $event)" />
-          <input  id="otp-input-4"  placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[4]" [disabled]="isInputDisabled(4)"  placeholder="-" (input)="handleInput(4, $event)" />
-          <input type="number" id="otp-input-5"  placeholder="-" maxlength="1" class="input" [(ngModel)]="otp[5]" [disabled]="isInputDisabled(5)" (input)="handleInput(5, $event)" />
+          <input id="otp-input-0" placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[0]"
+            [disabled]="isInputDisabled(0)" placeholder="-" (input)="handleInput(0, $event)" />
+          <input id="otp-input-1" placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[1]"
+            [disabled]="isInputDisabled(1)" placeholder="-" (input)="handleInput(1, $event)" />
+          <input id="otp-input-2" placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[2]"
+            [disabled]="isInputDisabled(2)" placeholder="-" (input)="handleInput(2, $event)" />
+          <input type="number" id="otp-input-3" placeholder="-" maxlength="1" class="input" [(ngModel)]="otp[3]"
+            [disabled]="isInputDisabled(3)" (input)="handleInput(3, $event)" />
+          <input id="otp-input-4" placeholder="-" type="number" maxlength="1" class="input" [(ngModel)]="otp[4]"
+            [disabled]="isInputDisabled(4)" placeholder="-" (input)="handleInput(4, $event)" />
+          <input type="number" id="otp-input-5" placeholder="-" maxlength="1" class="input" [(ngModel)]="otp[5]"
+            [disabled]="isInputDisabled(5)" (input)="handleInput(5, $event)" />
         </div>
-        
-  
+
+
       </div>
-  
-  
-    </div>  
+
+
+    </div>
   </div>
 
 </div>
