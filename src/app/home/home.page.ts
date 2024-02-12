@@ -32,6 +32,7 @@ export class HomePage {
     private matchesService: MatchesService
   ) {}
   ngOnInit() {
+    console.log('Home page call');
     this.fetchData();
     this.matchesService.checkAndRequestLocationPermission();
   }
