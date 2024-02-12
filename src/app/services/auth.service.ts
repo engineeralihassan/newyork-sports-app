@@ -11,6 +11,7 @@ export class AuthService {
   otpCode: any;
   user: any;
   loginMethod = 'username';
+  isPasswordNotSet: any;
 
   constructor(private http: HttpClient) {}
   findUser(data: any): Observable<any> {
