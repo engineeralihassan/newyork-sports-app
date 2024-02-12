@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatchesService } from '../services/matches.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkin',
@@ -8,7 +9,7 @@ import { MatchesService } from '../services/matches.service';
 })
 export class CheckinPage implements OnInit {
   screen2 = false;
-  constructor(private matcheService: MatchesService) {}
+  constructor(private matcheService: MatchesService, private router: Router) {}
 
   ngOnInit() {
     if (this.matcheService.checkinFail) {
@@ -17,5 +18,8 @@ export class CheckinPage implements OnInit {
   }
   changeScreen() {
     this.screen2 = true;
+  }
+  goHome() {
+    this.router.navigate(['/home']);
   }
 }

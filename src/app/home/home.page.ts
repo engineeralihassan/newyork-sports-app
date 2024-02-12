@@ -1,9 +1,11 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { AuthService } from '../services/auth.service';
 import { DatePipe } from '@angular/common';
 import { MatchesService } from '../services/matches.service';
 import { Subscription, timer } from 'rxjs';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +34,15 @@ export class HomePage {
     private matchesService: MatchesService
   ) {}
   ngOnInit() {
-    console.log('Home page call');
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        console.log('The event is called again');
+
+        if (event.url === '/home' || event.urlAfterRedirects === '/home') {
+          this.ngOnInit();
+        }
+      });
     this.fetchData();
     this.matchesService.checkAndRequestLocationPermission();
   }
