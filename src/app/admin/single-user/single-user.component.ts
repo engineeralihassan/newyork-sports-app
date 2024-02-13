@@ -23,7 +23,7 @@ export class SingleUserComponent implements OnInit {
   }
 
   ngOnInit() {
-    let newuser = { userId: this.user?.userId };
+    let newuser = { userId: this.user?.userId, checkInId: this.user?.id };
     this.singleUser(newuser);
   }
   transformDate(dateString: string): string | null {

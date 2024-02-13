@@ -445,10 +445,9 @@ ion-footer {
   gap: 20px;
   padding: 20px;
   overflow: hidden;
-  img {
-    max-width: 96%;
-    max-height: 350px;
-    scale: 1.4;
+  ion-icon {
+    font-size: 100px;
+    color: #b6d433;
   }
   h2 {
     margin-top: 25px;
