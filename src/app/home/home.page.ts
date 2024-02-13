@@ -66,8 +66,9 @@ export class HomePage {
   }
 
   formatTime(timestamp: string): string {
+    console.log('Timestamp:', timestamp); // Log the timestamp
     const date = new Date(Number(timestamp));
-    const formattedTime = this.datePipe.transform(date, 'ha');
+    const formattedTime = this.datePipe.transform(date, 'h:mm a');
     return formattedTime || '';
   }
   onButtonClick(obj: any): void {

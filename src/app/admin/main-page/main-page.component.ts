@@ -190,7 +190,7 @@ export class MainPageComponent {
   }
   formatTime(timestamp: string): string {
     const date = new Date(Number(timestamp));
-    const formattedTime = this.datePipe.transform(date, 'ha');
+    const formattedTime = this.datePipe.transform(date, 'h:mm a');
     return formattedTime || '';
   }
   onButtonClick(obj: any): void {
