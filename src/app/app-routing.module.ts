@@ -56,10 +56,6 @@ const routes: Routes = [
         (m) => m.ErrorPagePageModule
       ),
   },
-  {
-    path: 'example-form',
-    loadChildren: () => import('./example-form/example-form.module').then( m => m.ExampleFormPageModule)
-  },
 ];
 
 @NgModule({
